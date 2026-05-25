@@ -1,0 +1,3 @@
+# Cloudflare Pages — used by `npm run pages:deploy` / CI deploy command
+name = "homelabinabox-site"
+pages_build_output_dir = "dist"
