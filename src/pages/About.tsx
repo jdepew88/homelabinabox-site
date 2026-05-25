@@ -1,111 +1,208 @@
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
-import { DocLayout } from '../components/DocLayout'
 import { SITE } from '../config'
+import './About.css'
+
+const HERO_IMAGE = '/images/about/about-hero.png'
+
+const PILLARS = [
+  {
+    icon: '🛡️',
+    title: 'Privacy first',
+    body: 'Your VPS, your data. No tracking layer on the stack itself — you choose what runs.',
+  },
+  {
+    icon: '🏠',
+    title: 'Self-hosted',
+    body: 'Media, files, git, uptime, notes, and more — routed on your hardware.',
+  },
+  {
+    icon: '📦',
+    title: 'Docker native',
+    body: 'Isolated, portable containers behind one Traefik edge.',
+  },
+  {
+    icon: '🔒',
+    title: 'Routed & secure',
+    body: 'HTTPS at Cloudflare, tunnel to Traefik, optional Authelia at the proxy.',
+  },
+] as const
 
 export function About() {
   return (
-    <DocLayout
-      title="About"
-      lead="Homelab in a Box is an opinionated starter stack for self-hosting on a single Debian or Ubuntu machine."
-    >
-      <h2 id="why">Why this project exists</h2>
-      <p>
-        Running a homelab usually means stitching together Docker, a reverse proxy, TLS,
-        tunneling, and authentication from dozens of blog posts. Homelab in a Box packages
-        the pieces that work well together — Traefik, Cloudflare Tunnel, Portainer, and
-        Traefik Manager — so you can focus on the apps you actually want to run.
-      </p>
-      <p>
-        The docs on this site mirror the order most people need: prepare a host, wire up
-        Cloudflare, deploy the stack, then optionally add Authelia and more containers.
-      </p>
+    <article className="about-page">
+      <header className="about-hero">
+        <div className="about-hero__backdrop" aria-hidden="true" />
+        <div className="about-hero__grid" aria-hidden="true" />
+        <div className="about-hero__inner">
+          <p className="about-hero__eyebrow">About the project</p>
+          <h1 className="about-hero__title">
+            Your infrastructure.{' '}
+            <span className="about-hero__title-accent">You own it.</span>
+          </h1>
+          <p className="about-hero__lead">
+            {SITE.name} is an opinionated starter stack for Debian and Ubuntu — Traefik,
+            Cloudflare Tunnel, Portainer, and Traefik Manager — so you can self-host without
+            stitching a dozen tutorials together.
+          </p>
+          <div className="about-hero__visual">
+            <div className="about-hero__frame">
+              <img
+                src={HERO_IMAGE}
+                alt="Self-hosted homelab diagram: internet traffic through Cloudflare Tunnel to your VPS, Docker containers, privacy-first and routed services on your own server."
+                width={1400}
+                height={788}
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
+            <p className="about-hero__caption">
+              Internet → Cloudflare Tunnel → your server → containers you control
+            </p>
+          </div>
+        </div>
+      </header>
 
-      <h2 id="philosophy">Design philosophy</h2>
-      <ul>
-        <li><strong>Compose-first</strong> — one repo, clear service boundaries, easy to diff and fork.</li>
-        <li><strong>Tunnel-first ingress</strong> — Cloudflare terminates public HTTPS; tunnel targets Traefik on <code>http://traefik:80</code>.</li>
-        <li><strong>Progressive security</strong> — verify bootstrap routes before Authelia; protect one router at a time.</li>
-        <li><strong>Beginner-readable</strong> — scripts and docs assume you are learning, not just copying.</li>
-      </ul>
+      <div className="container container--narrow about-body">
+        <ul className="about-pillars" aria-label="Project pillars">
+          {PILLARS.map((p) => (
+            <li key={p.title} className="about-pillar">
+              <span className="about-pillar__icon" aria-hidden="true">
+                {p.icon}
+              </span>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </li>
+          ))}
+        </ul>
 
-      <h2 id="not">What it is not</h2>
-      <p>
-        This is not a hosted SaaS, a one-click appliance image, or a replacement for reading
-        Cloudflare and Docker documentation. You still own the server, backups, updates,
-        and secret management.
-      </p>
+        <div className="about-grid about-grid--pair">
+          <section className="about-card" id="why">
+            <h2>Why this exists</h2>
+            <p>
+              Running a homelab usually means reverse proxy, TLS, tunneling, and auth from
+              scattered blog posts. We package pieces that work well together so you can focus on
+              apps you actually want.
+            </p>
+            <p>
+              Docs here follow the order most people need:{' '}
+              <Link to="/host-setup">host</Link> → <Link to="/cloudflare">Cloudflare</Link> →{' '}
+              <Link to="/install">install</Link> → optional{' '}
+              <Link to="/authelia">Authelia</Link> and{' '}
+              <Link to="/add-containers">more containers</Link>.
+            </p>
+          </section>
 
-      <Callout variant="info" title="Documentation site">
-        <p>
-          Guides are published at{' '}
-          <a href={`https://${SITE.domain}`}>{SITE.domain}</a>. Examples use{' '}
-          <code>{SITE.domain}</code> in examples — substitute your own apex domain in{' '}
-          <code>.env</code> and DNS.
-        </p>
-      </Callout>
+          <section className="about-card" id="philosophy">
+            <h2>Design philosophy</h2>
+            <ul>
+              <li>
+                <strong>Compose-first</strong> — one repo, clear boundaries, easy to fork.
+              </li>
+              <li>
+                <strong>Tunnel-first</strong> — HTTPS at Cloudflare; tunnel to{' '}
+                <code>http://traefik:80</code>.
+              </li>
+              <li>
+                <strong>Progressive security</strong> — verify routes before Authelia; one router
+                at a time.
+              </li>
+              <li>
+                <strong>Beginner-readable</strong> — written for learning, not blind copy-paste.
+              </li>
+            </ul>
+          </section>
+        </div>
 
-      <h2 id="coming-soon">Coming soon</h2>
-      <p>
-        Active work on the stack repo and this site. Nothing here is a release promise — it is
-        the direction we are building toward.
-      </p>
+        <section className="about-card about-section" id="not">
+          <h2>What it is not</h2>
+          <p>
+            Not a hosted SaaS, not a one-click appliance, and not a substitute for Cloudflare or
+            Docker documentation. You still own the server, backups, updates, and secrets.
+          </p>
+          <Callout variant="info" title="Documentation site">
+            <p style={{ margin: 0 }}>
+              Guides live at{' '}
+              <a href={`https://${SITE.domain}`}>{SITE.domain}</a>. Examples use{' '}
+              <code>{SITE.domain}</code> — swap in your apex domain in <code>.env</code> and DNS.
+            </p>
+          </Callout>
+        </section>
 
-      <h3>Homelab stack and Cloudflare</h3>
-      <ul>
-        <li>
-          <strong>Cloudflare API integration</strong> — automate more of zone, tunnel, and token
-          setup instead of hand-copying dashboard values.
-        </li>
-        <li>
-          <strong>Streamlined Zero Trust hostnames</strong> — clearer paths to add new container
-          routes to the Cloudflare Tunnel (alongside Traefik Manager), with less dashboard hunting.
-        </li>
-        <li>
-          <strong>New host setup script</strong> — a refreshed script in the Homelab-in-a-box repo
-          for preparing Debian/Ubuntu hosts before Compose.
-        </li>
-      </ul>
+        <section className="about-card about-section about-roadmap" id="coming-soon">
+          <h2>Coming soon</h2>
+          <p>
+            Active work on the stack repo and this site. Direction, not release dates.
+          </p>
 
-      <h3>Documentation and site</h3>
-      <ul>
-        <li>
-          <strong>SSH for Mac and Linux</strong> — OpenSSH workflows on Debian and Ubuntu (
-          <code>ssh-keygen</code>, <code>ssh-copy-id</code>, and native terminals), not only
-          PuTTY/Pageant on Windows. <Link to="/host-setup">Host Setup</Link> will keep Windows
-          steps and add parallel paths.
-        </li>
-        <li>
-          <strong>Improved theming</strong> — refined presets, contrast, and layout polish across
-          doc pages.
-        </li>
-        <li>
-          <strong>General site updates</strong> — better aesthetics, navigation, and ease of use
-          as the docs grow.
-        </li>
-      </ul>
+          <h3>Homelab stack and Cloudflare</h3>
+          <ul>
+            <li>
+              <strong>Cloudflare API integration</strong> — automate zone, tunnel, and token setup.
+            </li>
+            <li>
+              <strong>Streamlined Zero Trust hostnames</strong> — easier paths to publish new
+              container routes through the tunnel and Traefik Manager.
+            </li>
+            <li>
+              <strong>New host setup script</strong> — refreshed prep for Debian/Ubuntu before
+              Compose.
+            </li>
+          </ul>
 
-      <Callout variant="tip" title="Ideas welcome">
-        <p>
-          If a coming-soon item would help you most, open an issue on{' '}
-          <a href={SITE.github} target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>{' '}
-          — stack changes and site docs can be tracked separately.
-        </p>
-      </Callout>
+          <h3>Documentation and site</h3>
+          <ul>
+            <li>
+              <strong>SSH for Mac and Linux</strong> — OpenSSH on Debian/Ubuntu (
+              <code>ssh-keygen</code>, <code>ssh-copy-id</code>) alongside existing PuTTY steps on{' '}
+              <Link to="/host-setup">Host Setup</Link>.
+            </li>
+            <li>
+              <strong>Improved theming</strong> — presets, contrast, and layout polish.
+            </li>
+            <li>
+              <strong>General site updates</strong> — aesthetics, navigation, and ease of use.
+            </li>
+          </ul>
 
-      <h2 id="contribute">Contributing</h2>
-      <p>
-        Issues and pull requests are welcome on{' '}
-        <a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>.
-        If you improve host scripts, Compose files, or these docs, keep changes focused
-        and test on a clean VM when you can.
-      </p>
-      <p>
-        Next step: <Link to="/host-setup">Host Setup</Link> if you are starting from a new server,
-        or <Link to="/install">Install</Link> if the machine is already prepared.
-      </p>
-    </DocLayout>
+          <Callout variant="tip" title="Ideas welcome">
+            <p style={{ margin: 0 }}>
+              Tell us what would help most via{' '}
+              <a href={SITE.github} target="_blank" rel="noopener noreferrer">
+                GitHub issues
+              </a>
+              .
+            </p>
+          </Callout>
+        </section>
+
+        <section className="about-card about-section" id="contribute">
+          <h2>Contributing</h2>
+          <p>
+            Issues and pull requests are welcome on{' '}
+            <a href={SITE.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            . Keep changes focused and test on a clean VM when you can.
+          </p>
+          <div className="about-cta">
+            <Link to="/host-setup" className="btn btn--primary">
+              Start Host Setup
+            </Link>
+            <Link to="/install" className="btn btn--secondary">
+              Install overview
+            </Link>
+            <a
+              href={SITE.github}
+              className="btn btn--secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
   )
 }
