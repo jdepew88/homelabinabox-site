@@ -1,4 +1,4 @@
-# Service logos (website)
+# Service logos
 
 Logos and trademarks belong to their respective owners. This site uses **local files only** in production — no hotlinking to third-party CDNs in the built site.
 
@@ -6,14 +6,14 @@ Logos and trademarks belong to their respective owners. This site uses **local f
 
 | Path | Purpose |
 |------|---------|
-| `website/public/logos/source/` | Original PNG/SVG you add or fetch |
-| `website/public/logos/` | Built assets (`{slug}-64.png`, `{slug}-128.png`, `{slug}-256.png`) |
-| `website/src/data/services.ts` | Metadata (`logoPath`, links, ports, homepage visibility) |
+| `public/logos/source/` | Original PNG/SVG you add or fetch |
+| `public/logos/` | Built assets (`{slug}-64.png`, `{slug}-128.png`, `{slug}-256.png`) |
+| `src/data/services.ts` | Metadata (`logoPath`, links, ports, homepage visibility) |
 
 ## Add a new service logo
 
-1. Add a row to `website/src/data/services.ts` (`id`, `logoPath`, `placeholderInitials`, etc.).
-2. Drop a source file named `{id}.png` or `{id}.svg` into `website/public/logos/source/`.
+1. Add a row to `src/data/services.ts` (`id`, `logoPath`, `placeholderInitials`, etc.).
+2. Drop a source file named `{id}.png` or `{id}.svg` into `public/logos/source/`.
 3. From the repository root:
 
 ```bash
@@ -30,19 +30,19 @@ The site references `/logos/{id}-128.png` on cards. If the file is missing, a **
 
 ## Navbar and favicon
 
-`website/public/logos/homelab-icon.png` — transparent box icon used in the header and browser tab (`favicon.png`, `favicon-32.png`, `apple-touch-icon.png`).
+`public/logos/homelab-icon.png` — transparent box icon used in the header and browser tab (`favicon.png`, `favicon-32.png`, `apple-touch-icon.png`).
 
 ## Hero brand image
 
-`website/public/logos/logo1.png` — full wordmark hero artwork. Regenerate sizes with `logo1.png` in `source/` and run `resize-logos.py`.
+`public/logos/logo1.png` — full wordmark hero artwork. Regenerate sizes with `logo1.png` in `source/` and run `resize-logos.py`.
 
 ## Architecture diagram (homepage)
 
-`website/public/images/architecture/architecture-traffic-flow.png` — “How traffic flows” panel.
+`public/images/architecture/architecture-traffic-flow.png` — “How traffic flows” panel.
 
 Responsive variants: `architecture-traffic-flow-480w.png` through `-1024w.png`.
 
-Replace `website/public/images/architecture/source/architecture-traffic-flow.png` and run:
+Replace `public/images/architecture/source/architecture-traffic-flow.png` and run:
 
 ```bash
 python3 scripts/resize-architecture.py

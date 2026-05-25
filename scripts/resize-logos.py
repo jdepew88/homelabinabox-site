@@ -2,11 +2,11 @@
 """
 Resize source logos for the Homelab in a Box website.
 
-Input:  website/public/logos/source/*.{png,svg,jpg,jpeg,webp}
-Output: website/public/logos/{slug}-{64,128,256}.png (+ optional .webp)
+Input:  public/logos/source/*.{png,svg,jpg,jpeg,webp}
+Output: public/logos/{slug}-{64,128,256}.png (+ optional .webp)
 
 Missing sources get a generated placeholder PNG (initials badge).
-SVG sources are copied to website/public/logos/{slug}.svg and rasterized for sizes.
+SVG sources are copied to public/logos/{slug}.svg and rasterized for sizes.
 """
 
 from __future__ import annotations
@@ -16,9 +16,9 @@ from pathlib import Path
 
 SIZES = (64, 128, 256)
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "website" / "public" / "logos" / "source"
-OUT = ROOT / "website" / "public" / "logos"
-SERVICES_JSON = ROOT / "website" / "src" / "data" / "services-meta.json"
+SOURCE = ROOT / "public" / "logos" / "source"
+OUT = ROOT / "public" / "logos"
+SERVICES_JSON = ROOT / "src" / "data" / "services-meta.json"
 
 # Fallback if JSON not generated — keep in sync with services.ts ids
 DEFAULT_SERVICES = [

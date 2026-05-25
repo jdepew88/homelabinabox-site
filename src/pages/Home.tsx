@@ -107,7 +107,7 @@ export function Home() {
           </div>
           <p className="logo-attribution">
             Service names and logos are trademarks of their respective owners. See{' '}
-            <code>website/docs/LOGOS.md</code> to add official artwork.
+            <code>docs/LOGOS.md</code> to add official artwork.
           </p>
         </div>
       </section>

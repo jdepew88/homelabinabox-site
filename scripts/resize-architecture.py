@@ -2,15 +2,15 @@
 """
 Generate responsive widths for the homepage architecture diagram.
 
-Source: website/public/images/architecture/source/architecture-traffic-flow.png
-Output: website/public/images/architecture/architecture-traffic-flow-{width}w.png
-        website/public/images/architecture/architecture-traffic-flow.png (largest)
+Source: public/images/architecture/source/architecture-traffic-flow.png
+Output: public/images/architecture/architecture-traffic-flow-{width}w.png
+        public/images/architecture/architecture-traffic-flow.png (largest)
 """
 
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DIR = ROOT / "website" / "public" / "images" / "architecture"
+DIR = ROOT / "public" / "images" / "architecture"
 SOURCE = DIR / "source" / "architecture-traffic-flow.png"
 WIDTHS = (480, 640, 768, 1024, 1280, 1600)
 

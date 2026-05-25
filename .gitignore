@@ -1,9 +1,8 @@
 # Dependencies
 node_modules/
-website/node_modules/
 
 # Build output (Cloudflare Pages builds from source)
-website/dist/
+dist/
 
 # Environment and secrets
 .env
@@ -18,8 +17,8 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
-website/node_modules/.vite/
-website/node_modules/.tmp/
+node_modules/.vite/
+node_modules/.tmp/
 
 # Cursor / local assets (uploaded reference images)
 assets/
@@ -29,3 +28,6 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Local-only (legacy nested app folder)
+website/

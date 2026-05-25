@@ -11,7 +11,6 @@ The Docker Compose homelab project lives separately: [github.com/jdepew88/Homela
 ## Local development
 
 ```bash
-cd website
 npm install
 npm run dev
 ```
@@ -21,32 +20,39 @@ Open the URL Vite prints (usually `http://localhost:5173`).
 ## Production build
 
 ```bash
-cd website
 npm ci
 npm run build
 ```
 
-Static output: `website/dist/`
+Static output: `dist/`
 
 ## Deploy (Cloudflare Pages)
 
+Same layout as [jrtechnicalconsulting.com](https://jrtechnicalconsulting.com) — Vite app at the repo root.
+
 | Setting | Value |
 |--------|--------|
-| Build command | `cd website && npm ci && npm run build` |
-| Build output directory | `website/dist` |
-| SPA routing | `website/public/_redirects` (`/* /index.html 200`) |
+| Production branch | `master` |
+| Root directory | *(empty — repo root)* |
+| Build command | `npm ci && npm run build` |
+| Build output directory | `dist` |
+| Deploy command | `exit 0` (if required; otherwise leave blank) |
 
-Connect custom domain `homelabinabox.com` in the Cloudflare Pages project.
+SPA routing: `public/_redirects` (`/* /index.html 200`).
 
-Details: [website/README.md](website/README.md)
+Connect custom domain `homelabinabox.com` in the Pages project (not a Worker).
+
+Logo workflow: [docs/LOGOS.md](docs/LOGOS.md)
 
 ## Repository layout
 
 | Path | Purpose |
 |------|---------|
-| `website/` | Vite + React + TypeScript site |
-| `website/src/config.ts` | Site name, domain, GitHub URL, nav |
+| `src/` | React + TypeScript app |
+| `public/` | Static assets, `_redirects` |
+| `src/config.ts` | Site name, domain, GitHub URL, nav |
 | `scripts/` | Logo and architecture image resize helpers |
+| `docs/` | Maintainer docs |
 | `requirements.txt` | Python deps for resize scripts |
 
 ## License

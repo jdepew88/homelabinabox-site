@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = Path(__file__).parent / "logo-sources.json"
-SOURCE = ROOT / "website" / "public" / "logos" / "source"
+SOURCE = ROOT / "public" / "logos" / "source"
 TIMEOUT = 20
 USER_AGENT = "HomelabInABox-LogoFetcher/1.0 (local setup script)"
 
