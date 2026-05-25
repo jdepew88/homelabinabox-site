@@ -17,5 +17,5 @@ function ensureBoot() {
 
 export function useThemePreset(): ThemePresetId {
   ensureBoot()
-  return useSyncExternalStore(subscribeTheme, getThemePreset, () => 'zinc')
+  return useSyncExternalStore(subscribeTheme, getThemePreset, () => 'ocean')
 }

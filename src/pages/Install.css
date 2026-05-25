@@ -1,0 +1,261 @@
+/* Install guide — marketing hero + responsive wide prose */
+
+.install-page {
+  --install-shell-max: var(--prose-max);
+  --install-glow: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .install-page {
+    --install-shell-max: min(58rem, calc(100vw - 2.5rem));
+  }
+}
+
+@media (min-width: 1280px) {
+  .install-page {
+    --install-shell-max: min(62rem, 94vw);
+  }
+}
+
+@media (orientation: portrait) {
+  .install-page {
+    --install-shell-max: var(--prose-max);
+  }
+}
+
+.install-hero {
+  position: relative;
+  overflow: hidden;
+  color: var(--text);
+  /* Matches install hero artwork for a seamless edge */
+  background: #0f172a;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border-subtle));
+}
+
+.install-hero__backdrop {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 20% 0%, var(--hero-glow), transparent 58%),
+    radial-gradient(circle at 85% 25%, color-mix(in srgb, var(--accent-blue) 12%, transparent), transparent 48%),
+    linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+}
+
+.install-hero__grid {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image:
+    linear-gradient(to right, var(--accent) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--accent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(180deg, black 0%, transparent 88%);
+}
+
+.install-hero__inner {
+  position: relative;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .install-hero__inner {
+    padding: 3rem 1.75rem 2.5rem;
+  }
+}
+
+.install-hero__layout {
+  display: grid;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+@media (min-width: 900px) {
+  .install-hero__layout {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 2rem 2.5rem;
+  }
+}
+
+.install-hero__copy {
+  min-width: 0;
+}
+
+.install-hero__visual {
+  position: relative;
+  min-width: 0;
+}
+
+.install-hero__frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #000 45%, transparent),
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 72px var(--install-glow);
+  background: #0a1628;
+}
+
+.install-hero__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.install-hero__caption {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+}
+
+@media (min-width: 900px) {
+  .install-hero__caption {
+    text-align: left;
+  }
+}
+
+.install-hero__eyebrow {
+  display: inline-flex;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--hero-badge-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.install-hero__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  max-width: 20ch;
+}
+
+@media (min-width: 900px) {
+  .install-hero__title {
+    max-width: none;
+  }
+}
+
+.install-hero__title-accent {
+  background: linear-gradient(
+    125deg,
+    var(--accent) 0%,
+    var(--accent-blue) 55%,
+    color-mix(in srgb, var(--accent-hover) 80%, var(--accent-blue)) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.install-hero__lead {
+  margin: 0;
+  max-width: 36rem;
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.install-shell {
+  width: 100%;
+  max-width: var(--install-shell-max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.install-body {
+  padding: 2rem 0 4rem;
+}
+
+.install-body > h2,
+.install-body > section > h2 {
+  margin-top: 2.5rem;
+  padding-top: 0.25rem;
+}
+
+.install-body > h2:first-child,
+.install-body > section:first-of-type > h2 {
+  margin-top: 0;
+}
+
+.install-body h2[id],
+.install-body section[id],
+.install-body .install-complete[id] {
+  scroll-margin-top: calc(var(--nav-height) + 4.25rem);
+}
+
+.install-section {
+  margin-bottom: 0.5rem;
+}
+
+.install-section--path {
+  margin-top: 2rem;
+  padding: 1.35rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.install-section--path > h2 {
+  margin-top: 0;
+}
+
+.install-path-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.install-core-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.install-core-services span {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-family: var(--mono);
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+  border-radius: 999px;
+}
+
+.install-page .callout {
+  margin: 1.25rem 0;
+}
+
+.install-page .install-flow {
+  margin-bottom: 1.75rem;
+}
+
+.install-page .code-block,
+.install-page pre {
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .install-body .code-block pre {
+    font-size: 0.875rem;
+  }
+}

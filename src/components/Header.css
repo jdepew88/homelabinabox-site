@@ -10,6 +10,7 @@
   top: 0;
   z-index: 100;
   height: var(--nav-height);
+  overflow: visible;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
@@ -22,6 +23,7 @@
   height: 100%;
   gap: 0.5rem 0.65rem;
   min-width: 0;
+  overflow: visible;
 }
 
 .header__brand {
@@ -53,13 +55,14 @@
   flex-shrink: 0;
 }
 
-/* Center nav — desktop only (sized at 1024px+ below) */
+/* Center nav — hidden on mobile; shown tablet landscape + desktop */
 .header__nav {
   display: none;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
   min-width: 0;
+  overflow: visible;
 }
 
 .header__nav a {
@@ -99,13 +102,20 @@
   top: calc(100% + 0.35rem);
   left: 0;
   min-width: 11.5rem;
+  max-height: min(18rem, calc(100dvh - var(--nav-height) - 1.25rem));
   padding: 0.35rem;
+  margin: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 12px 40px color-mix(in srgb, var(--bg) 40%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent) 6%, transparent);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transform: translateY(-4px);
   transition:
     opacity 0.15s,
@@ -114,11 +124,20 @@
   z-index: 110;
 }
 
-.nav-dropdown--open .nav-dropdown__menu,
-.nav-dropdown:focus-within .nav-dropdown__menu {
+.nav-dropdown--open .nav-dropdown__menu {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
+}
+
+@media (hover: hover) {
+  .nav-dropdown:hover .nav-dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 }
 
 .nav-dropdown__item {
@@ -316,8 +335,123 @@
   }
 }
 
-/* ——— Tablet (640px – 1023px): drawer menu ——— */
-@media (min-width: 640px) and (max-width: 1023px) {
+/* ——— Tablet portrait (640px – 1023px): drawer menu ——— */
+@media (min-width: 640px) and (max-width: 1023px) and (orientation: portrait) {
+  .header__brand-text {
+    max-width: 14rem;
+  }
+
+  .header__actions .theme-picker--select {
+    display: flex;
+  }
+
+  .header__actions .theme-picker__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* ——— Tablet landscape (768px – 1023px): compact inline nav + dropdown ——— */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .header__brand-text {
+    max-width: 11rem;
+    display: inline;
+  }
+
+  .header__nav {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0 0.35rem;
+  }
+
+  .header__nav a,
+  .nav-dropdown__trigger {
+    color: var(--text);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.45rem 0.65rem;
+    border-radius: 8px;
+    transition:
+      color 0.15s,
+      background 0.15s;
+  }
+
+  .header__nav a:hover,
+  .nav-dropdown__trigger:hover,
+  .nav-dropdown--open .nav-dropdown__trigger {
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .header__nav a.active,
+  .nav-dropdown__trigger.active {
+    color: var(--accent);
+    font-weight: 700;
+    background: color-mix(in srgb, var(--accent-glow) 85%, var(--bg-elevated));
+  }
+
+  .nav-dropdown__menu {
+    min-width: 11rem;
+    max-height: min(16rem, calc(100dvh - var(--nav-height) - 1rem));
+  }
+
+  .nav-dropdown__item {
+    font-size: 0.8125rem;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .header__menu-btn {
+    display: none;
+  }
+
+  .header__mobile,
+  .header__backdrop {
+    display: none !important;
+  }
+
+  .header__actions .theme-picker--select {
+    display: flex;
+  }
+
+  .header__actions .theme-picker__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .header__actions .btn--ghost.header__github-link {
+    display: none;
+  }
+
+  .header__cta--long {
+    display: none;
+  }
+
+  .header__cta--short {
+    display: inline-flex;
+  }
+
+  .header__actions .btn {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Tablet landscape under 768 width (rare): still use drawer */
+@media (min-width: 640px) and (max-width: 767px) {
   .header__brand-text {
     max-width: 14rem;
   }
@@ -359,6 +493,11 @@
     display: flex;
     gap: 0.5rem;
     padding: 0 0.75rem;
+    overflow: visible;
+  }
+
+  .nav-dropdown__menu {
+    max-height: min(18rem, calc(100dvh - 5rem));
   }
 
   .header__nav a,
@@ -450,8 +589,8 @@
   }
 
   .nav-dropdown__menu {
-    left: auto;
-    right: 0;
+    min-width: 12rem;
+    max-height: min(17rem, calc(100dvh - var(--nav-height) - 1rem));
   }
 }
 

@@ -1,0 +1,106 @@
+.install-subnav {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 20;
+  border-bottom: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.install-subnav__inner {
+  max-width: var(--install-shell-max, var(--prose-max));
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem;
+}
+
+.install-jump {
+  position: relative;
+  margin: 0;
+}
+
+.install-jump__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.45rem 0.9rem 0.45rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    box-shadow 0.15s;
+}
+
+.install-jump__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.install-jump__trigger::marker {
+  content: '';
+}
+
+.install-jump__trigger:hover,
+.install-jump[open] > .install-jump__trigger {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: color-mix(in srgb, var(--accent-glow) 55%, var(--bg-card));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.install-jump__chevron {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--text-dim);
+  border-bottom: 2px solid var(--text-dim);
+  transform: rotate(45deg) translateY(-1px);
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.install-jump[open] .install-jump__chevron {
+  transform: rotate(225deg) translate(1px, 1px);
+  border-color: var(--accent);
+}
+
+.install-jump__menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.45rem);
+  z-index: 30;
+  min-width: min(18rem, calc(100vw - 2.5rem));
+  max-height: min(18rem, 50vh);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 28%, var(--border)) transparent;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: color-mix(in srgb, var(--bg-elevated) 96%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 12px 40px color-mix(in srgb, var(--bg) 55%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.install-jump__menu a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: color 0.12s, background 0.12s;
+}
+
+.install-jump__menu a:hover {
+  color: var(--accent);
+  background: var(--accent-glow);
+  text-decoration: none;
+}

@@ -3,7 +3,6 @@
  * Applied via <html data-theme="…">.
  */
 
-:root,
 html[data-theme='zinc'] {
   --bg: #09090b;
   --bg-elevated: #111113;
@@ -46,6 +45,7 @@ html[data-theme='emerald'] {
   --hero-badge-border: rgba(52, 211, 153, 0.35);
 }
 
+:root,
 html[data-theme='ocean'] {
   --bg: #0f172a;
   --bg-elevated: #172554;

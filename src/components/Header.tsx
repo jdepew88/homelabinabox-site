@@ -91,7 +91,7 @@ export function Header() {
 
       <nav
         id="header-mobile-menu"
-        className={`header__mobile${menuOpen ? ' is-open' : ''}`}
+        className={`header__mobile scroll-theme${menuOpen ? ' is-open' : ''}`}
         aria-label="Mobile"
         aria-hidden={!menuOpen}
       >

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
-import { DocLayout } from '../components/DocLayout'
+import { InstallJumpNav } from '../components/InstallJumpNav'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
 import { InstallCompletionFigure } from '../components/InstallCompletionFigure'
 import { InstallWarnings } from '../components/InstallWarnings'
@@ -13,26 +13,52 @@ import {
   EXAMPLE_DOMAIN,
   SERVICE_PORTS,
 } from '../content/install'
+import './Install.css'
+
+const INSTALL_HERO_IMAGE = '/images/install/install-hero.png'
 
 export function Install() {
   return (
-    <DocLayout
-      title="Install"
-      lead="Get Traefik, cloudflared, Portainer, and Traefik Manager working first — without Authelia. Add authentication and more apps only after routing is verified."
-      toc={[
-        { id: 'start', label: 'Start here' },
-        { id: 'principle', label: 'Core principle' },
-        { id: 'warnings', label: 'Warnings' },
-        { id: 'beginner', label: 'Path A: Beginner' },
-        { id: 'experienced', label: 'Path B: Experienced' },
-        { id: 'bootstrap', label: 'Bootstrap stack' },
-        { id: 'verify', label: 'Verify services' },
-        { id: 'install-complete', label: 'Stack ready' },
-        { id: 'troubleshoot', label: '404 vs 502' },
-        { id: 'later', label: 'After bootstrap' },
-      ]}
-    >
-      <h2 id="start">Start here</h2>
+    <article className="install-page">
+      <header className="install-hero">
+        <div className="install-hero__backdrop" aria-hidden="true" />
+        <div className="install-hero__grid" aria-hidden="true" />
+        <div className="install-hero__inner">
+          <div className="install-hero__layout">
+            <div className="install-hero__copy">
+              <p className="install-hero__eyebrow">Installation guide</p>
+              <h1 className="install-hero__title">
+                Bootstrap the stack,{' '}
+                <span className="install-hero__title-accent">then expand.</span>
+              </h1>
+              <p className="install-hero__lead">
+                Get Traefik, cloudflared, Portainer, and Traefik Manager working first — without
+                Authelia. Add authentication and more apps only after routing is verified.
+              </p>
+            </div>
+            <div className="install-hero__visual">
+              <div className="install-hero__frame">
+                <img
+                  src={INSTALL_HERO_IMAGE}
+                  alt="Homelab in a Box installation: Docker Compose on a server, Cloudflare Tunnel and Traefik routing, Portainer and Authelia services, with installation progress and system monitoring displays."
+                  width={1024}
+                  height={576}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </div>
+              <p className="install-hero__caption">
+                Bootstrap the edge stack, verify routes, then add Authelia and more apps
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <InstallJumpNav />
+
+      <div className="install-shell install-body">
+      <h2 id="start" className="install-section">Start here</h2>
       <p>
         This guide follows the order that causes the fewest surprises for a new homelab host.
         Skipping ahead to Authelia or extra apps before the bootstrap stack works usually leads
@@ -44,7 +70,7 @@ export function Install() {
       <p>
         <strong>Start without Authelia.</strong> Your first goal is only these services:
       </p>
-      <div className="core-services" aria-label="Bootstrap services">
+      <div className="install-core-services" aria-label="Bootstrap services">
         <span>Traefik</span>
         <span>cloudflared</span>
         <span>Portainer</span>
@@ -68,9 +94,9 @@ export function Install() {
       <h2 id="warnings">Warnings</h2>
       <InstallWarnings />
 
-      <section className="path-section" id="beginner">
+      <section className="install-section install-section--path" id="beginner">
         <h2>
-          <span>Path A</span>
+          <span className="install-path-label">Path A</span>
           Beginner path
         </h2>
         <p>
@@ -112,9 +138,9 @@ export function Install() {
         </ol>
       </section>
 
-      <section className="path-section" id="experienced">
+      <section className="install-section install-section--path" id="experienced">
         <h2>
-          <span>Path B</span>
+          <span className="install-path-label">Path B</span>
           Experienced path
         </h2>
         <p>
@@ -276,6 +302,7 @@ export function Install() {
           Manager, and point new Cloudflare hostnames at <code>http://traefik:80</code>.
         </li>
       </ol>
-    </DocLayout>
+      </div>
+    </article>
   )
 }

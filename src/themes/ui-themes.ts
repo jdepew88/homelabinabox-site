@@ -12,7 +12,7 @@ export type ThemePresetId = (typeof UI_THEME_PRESETS)[number]['id']
 
 const THEME_IDS = new Set<string>(UI_THEME_PRESETS.map((t) => t.id))
 
-export const DEFAULT_THEME: ThemePresetId = 'zinc'
+export const DEFAULT_THEME: ThemePresetId = 'ocean'
 
 export function normalizeThemePreset(value: string | null | undefined): ThemePresetId {
   const v = String(value ?? '').trim()

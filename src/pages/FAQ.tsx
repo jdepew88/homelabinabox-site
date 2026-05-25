@@ -7,6 +7,8 @@ import { SITE } from '../config'
 import { COMMANDS, EXAMPLE_DOMAIN } from '../content/install'
 import './FAQ.css'
 
+const FAQ_HERO_IMAGE = '/images/faq/faq-hero.png'
+
 type FaqItem = {
   q: string
   a: ReactNode
@@ -132,26 +134,45 @@ export function FAQ() {
         <div className="faq-hero__backdrop" aria-hidden="true" />
         <div className="faq-hero__grid" aria-hidden="true" />
         <div className="faq-hero__inner">
-          <p className="faq-hero__eyebrow">Help & troubleshooting</p>
-          <h1 className="faq-hero__title">
-            Fix the stack,{' '}
-            <span className="faq-hero__title-accent">not your patience.</span>
-          </h1>
-          <p className="faq-hero__lead">
-            Common fixes for tunnel, Traefik, Portainer, and Authelia — plus how to read 404 vs 502
-            before you rebuild everything.
-          </p>
-          <nav aria-label="Jump to questions">
-            <ul className="faq-hero__chips">
-              {FAQ_ITEMS.map((item, i) => (
-                <li key={item.q}>
-                  <a className="faq-hero__chip" href={`#faq-${i}`}>
-                    {item.chip}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="faq-hero__layout">
+            <div className="faq-hero__copy">
+              <p className="faq-hero__eyebrow">Help & troubleshooting</p>
+              <h1 className="faq-hero__title">
+                Fix the stack,{' '}
+                <span className="faq-hero__title-accent">not your patience.</span>
+              </h1>
+              <p className="faq-hero__lead">
+                Common fixes for tunnel, Traefik, Portainer, and Authelia — plus how to read 404 vs
+                502 before you rebuild everything.
+              </p>
+              <nav aria-label="Jump to questions">
+                <ul className="faq-hero__chips">
+                  {FAQ_ITEMS.map((item, i) => (
+                    <li key={item.q}>
+                      <a className="faq-hero__chip" href={`#faq-${i}`}>
+                        {item.chip}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            <div className="faq-hero__visual">
+              <div className="faq-hero__frame">
+                <img
+                  src={FAQ_HERO_IMAGE}
+                  alt="Homelab in a Box FAQ: Cloudflare Tunnel routing to self-hosted apps, common setup questions, and a homelab server stack illustration."
+                  width={1024}
+                  height={682}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </div>
+              <p className="faq-hero__caption">
+                Tunnel, Traefik, and your apps — answers before you tear it all down
+              </p>
+            </div>
+          </div>
         </div>
       </header>
 
