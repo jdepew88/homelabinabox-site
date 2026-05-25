@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SITE } from '../config'
-import './hero.css'
+import './Hero.css'
 
 const HERO_LOGO = '/images/homelab-in-a-box-logo.png'
 
