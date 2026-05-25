@@ -1,3 +1,7 @@
-# Cloudflare Pages — used by `npm run pages:deploy` / CI deploy command
+# Workers Builds — static Vite SPA (same model as jr-technical-consulting-site)
 name = "homelabinabox-site"
-pages_build_output_dir = "dist"
+compatibility_date = "2026-05-24"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"

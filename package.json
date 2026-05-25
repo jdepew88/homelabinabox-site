@@ -10,7 +10,7 @@
     "rebuild": "npm run clean && npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pages:deploy": "wrangler pages deploy"
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
