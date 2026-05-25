@@ -1,12 +1,21 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
-import { DocLayout } from '../components/DocLayout'
 import { RoutingTroubleshooting } from '../components/RoutingTroubleshooting'
+import { SITE } from '../config'
 import { COMMANDS, EXAMPLE_DOMAIN } from '../content/install'
+import './FAQ.css'
 
-const FAQ_ITEMS = [
+type FaqItem = {
+  q: string
+  a: ReactNode
+  chip: string
+}
+
+const FAQ_ITEMS: FaqItem[] = [
   {
+    chip: '404',
     q: 'curl returns 404 with a Host header',
     a: (
       <>
@@ -22,6 +31,7 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    chip: '502',
     q: 'curl returns 502',
     a: (
       <p>
@@ -31,6 +41,7 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    chip: 'Tunnel',
     q: 'Tunnel shows healthy but I get Error 1033 or 502 in the browser',
     a: (
       <>
@@ -50,6 +61,7 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    chip: 'Portainer',
     q: 'Portainer works locally but not through the tunnel',
     a: (
       <p>
@@ -60,6 +72,7 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    chip: 'Authelia',
     q: 'Authelia redirect loop',
     a: (
       <>
@@ -73,6 +86,7 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    chip: 'Docker',
     q: 'Permission denied on Docker socket',
     a: (
       <>
@@ -82,6 +96,7 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    chip: 'Compose',
     q: 'Compose file not found or wrong project name',
     a: (
       <p>
@@ -93,6 +108,7 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    chip: 'Firewall',
     q: 'Should I expose ports 80 and 443 on my router?',
     a: (
       <p>
@@ -103,42 +119,96 @@ const FAQ_ITEMS = [
   },
 ]
 
+const QUICK_REF = [
+  { code: '404', label: 'No router', hint: 'Traefik does not recognize the Host header.' },
+  { code: '502', label: 'Bad gateway', hint: 'Route matched but the container is unreachable.' },
+  { code: '1033', label: 'Cloudflare edge', hint: 'Tunnel or origin target is misconfigured.' },
+] as const
+
 export function FAQ() {
   return (
-    <DocLayout
-      title="FAQ / Troubleshooting"
-      lead="Common issues when bringing up the tunnel, Traefik, and optional Authelia."
-      toc={FAQ_ITEMS.map((item, i) => ({
-        id: `faq-${i}`,
-        label: item.q,
-      }))}
-    >
-      <Callout variant="tip" title="Gather logs first">
-        <p>
-          <code>docker ps</code>, <code>docker logs traefik --tail=100</code>, and Cloudflare
-          tunnel diagnostics solve most cases faster than re-installing. Full checklist:{' '}
-          <Link to="/install#verify">Install → Verify</Link>.
-        </p>
-      </Callout>
+    <article className="faq-page">
+      <header className="faq-hero">
+        <div className="faq-hero__backdrop" aria-hidden="true" />
+        <div className="faq-hero__grid" aria-hidden="true" />
+        <div className="faq-hero__inner">
+          <p className="faq-hero__eyebrow">Help & troubleshooting</p>
+          <h1 className="faq-hero__title">
+            Fix the stack,{' '}
+            <span className="faq-hero__title-accent">not your patience.</span>
+          </h1>
+          <p className="faq-hero__lead">
+            Common fixes for tunnel, Traefik, Portainer, and Authelia — plus how to read 404 vs 502
+            before you rebuild everything.
+          </p>
+          <nav aria-label="Jump to questions">
+            <ul className="faq-hero__chips">
+              {FAQ_ITEMS.map((item, i) => (
+                <li key={item.q}>
+                  <a className="faq-hero__chip" href={`#faq-${i}`}>
+                    {item.chip}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-      <RoutingTroubleshooting />
+      <div className="container container--narrow faq-body">
+        <ul className="faq-quick" aria-label="HTTP status quick reference">
+          {QUICK_REF.map((r) => (
+            <li key={r.code} className="faq-quick__item">
+              <strong>{r.code}</strong>
+              <span>
+                {r.label} — {r.hint}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-      {FAQ_ITEMS.map((item, i) => (
-        <section key={item.q} id={`faq-${i}`}>
-          <h2>{item.q}</h2>
-          {item.a}
+        <Callout variant="tip" title="Gather logs first">
+          <p style={{ margin: 0 }}>
+            <code>docker ps</code>, <code>docker logs traefik --tail=100</code>, and Cloudflare
+            tunnel diagnostics solve most cases faster than re-installing. Full checklist:{' '}
+            <Link to="/install#verify">Install → Verify</Link>.
+          </p>
+        </Callout>
+
+        <section className="faq-card faq-card--highlight" id="http-codes">
+          <RoutingTroubleshooting />
         </section>
-      ))}
 
-      <h2>Still stuck?</h2>
-      <p>
-        Open an issue on GitHub with redacted <code>.env</code> keys, output of{' '}
-        <code>docker compose ps</code>, and the public hostname you are testing.
-      </p>
-      <p>
-        Review guides: <Link to="/host-setup">Host Setup</Link>,{' '}
-        <Link to="/cloudflare">Cloudflare</Link>, <Link to="/install">Install</Link>.
-      </p>
-    </DocLayout>
+        {FAQ_ITEMS.map((item, i) => (
+          <section key={item.q} id={`faq-${i}`} className="faq-card faq-item">
+            <h2 className="faq-item__q">{item.q}</h2>
+            {item.a}
+          </section>
+        ))}
+
+        <section className="faq-card faq-stuck" id="still-stuck">
+          <h2>Still stuck?</h2>
+          <p>
+            Open an issue on{' '}
+            <a href={SITE.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>{' '}
+            with redacted <code>.env</code> keys, output of <code>docker compose ps</code>, and the
+            public hostname you are testing.
+          </p>
+          <div className="faq-cta">
+            <Link to="/install#troubleshoot" className="btn btn--primary">
+              Install troubleshooting
+            </Link>
+            <Link to="/cloudflare" className="btn btn--secondary">
+              Cloudflare Setup
+            </Link>
+            <Link to="/host-setup" className="btn btn--secondary">
+              Host Setup
+            </Link>
+          </div>
+        </section>
+      </div>
+    </article>
   )
 }
