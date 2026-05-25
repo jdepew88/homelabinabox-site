@@ -3,6 +3,7 @@ import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
 import { DocLayout } from '../components/DocLayout'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
+import { InstallCompletionFigure } from '../components/InstallCompletionFigure'
 import { InstallWarnings } from '../components/InstallWarnings'
 import { RoutingTroubleshooting } from '../components/RoutingTroubleshooting'
 import {
@@ -26,6 +27,7 @@ export function Install() {
         { id: 'experienced', label: 'Path B: Experienced' },
         { id: 'bootstrap', label: 'Bootstrap stack' },
         { id: 'verify', label: 'Verify services' },
+        { id: 'install-complete', label: 'Stack ready' },
         { id: 'troubleshoot', label: '404 vs 502' },
         { id: 'later', label: 'After bootstrap' },
       ]}
@@ -254,6 +256,8 @@ export function Install() {
           <code>https://traefik.{EXAMPLE_DOMAIN}</code> loads the Traefik dashboard (protect later)
         </li>
       </ul>
+
+      <InstallCompletionFigure />
 
       <h2 id="troubleshoot">404 vs 502 and TLS notes</h2>
       <RoutingTroubleshooting />
