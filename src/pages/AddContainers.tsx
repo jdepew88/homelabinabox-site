@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom'
 import { AppDeployChecklist } from '../components/AppDeployChecklist'
-import { AppExpansionFlow } from '../components/AppExpansionFlow'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
-import { DocLayout } from '../components/DocLayout'
+import { GuidePageHero } from '../components/GuidePageHero'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
+import { SectionJumpNav } from '../components/SectionJumpNav'
+import { ADD_CONTAINERS_SECTIONS } from '../content/add-containers-sections'
 import { EXAMPLE_DOMAIN } from '../content/install'
 import { boxGridClass } from '../utils/boxGrid'
 import './AddContainers.css'
+import './guide-page.css'
+
+const ADD_CONTAINERS_HERO_IMAGE = '/images/add-containers/app-expansion-flow.png'
+
+const ADD_CONTAINERS_HERO_ALT =
+  'How app expansion flows: Docker base stack with Traefik, Portainer to deploy containers, Traefik Manager for routes and middleware, new apps on the proxy network, and live subdomains routed behind Traefik.'
 
 const EXAMPLE_HOST = `uptime.${EXAMPLE_DOMAIN}`
 
@@ -43,21 +50,25 @@ const ROUTE_FIELDS: [string, string][] = [
 
 export function AddContainers() {
   return (
-    <DocLayout
-      title="Add More Containers"
-      lead="Deploy apps in Portainer, publish them with Traefik Manager, and keep every public hostname pointed at Traefik — same workflow for every new service."
-      toc={[
-        { id: 'app-expansion-flow', label: 'App expansion flow' },
-        { id: 'roles', label: 'Who does what' },
-        { id: 'pattern', label: 'Workflow' },
-        { id: 'checklist', label: 'Go-live checklist' },
-        { id: 'uptime', label: 'Example: Uptime Kuma' },
-        { id: 'manager-route', label: 'Traefik Manager route' },
-        { id: 'testing', label: 'Testing' },
-        { id: 'rules', label: 'Labels vs Manager' },
-        { id: 'next', label: 'Related guides' },
-      ]}
-    >
+    <article className="guide-page">
+      <GuidePageHero
+        eyebrow="Add apps"
+        title={
+          <>
+            Deploy in Portainer,{' '}
+            <span className="guide-hero__title-accent">route in Traefik.</span>
+          </>
+        }
+        lead="Deploy apps in Portainer, publish them with Traefik Manager, and keep every public hostname pointed at Traefik — same workflow for every new service."
+        imageSrc={ADD_CONTAINERS_HERO_IMAGE}
+        imageAlt={ADD_CONTAINERS_HERO_ALT}
+        caption="Portainer → proxy network → Traefik Manager → Cloudflare hostname"
+        flowId="app-expansion-flow"
+      />
+
+      <SectionJumpNav sections={ADD_CONTAINERS_SECTIONS} />
+
+      <div className="guide-shell guide-body">
       <InstallFlowSteps />
 
       <Callout variant="info" title="Prerequisites">
@@ -67,8 +78,6 @@ export function AddContainers() {
           <Link to="/cloudflare">Cloudflare Setup</Link>).
         </p>
       </Callout>
-
-      <AppExpansionFlow />
 
       <h2 id="roles">Who does what</h2>
       <div className={boxGridClass(4)}>
@@ -248,6 +257,7 @@ export function AddContainers() {
           <Link to="/faq">FAQ / Troubleshooting</Link>
         </li>
       </ul>
-    </DocLayout>
+      </div>
+    </article>
   )
 }

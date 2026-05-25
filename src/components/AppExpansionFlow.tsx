@@ -1,3 +1,4 @@
+import { ZoomableImage } from './image-lightbox'
 import './AppExpansionFlow.css'
 
 const IMAGE_SRC = '/images/add-containers/app-expansion-flow.png'
@@ -12,7 +13,7 @@ type Props = {
 export function AppExpansionFlow({ id = 'app-expansion-flow' }: Props) {
   return (
     <figure className="app-expansion-flow" id={id}>
-      <img
+      <ZoomableImage
         className="app-expansion-flow__img"
         src={IMAGE_SRC}
         alt={ALT}

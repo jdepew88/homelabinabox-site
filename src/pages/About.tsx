@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
 import { SITE } from '../config'
+import { ZoomableImage } from '../components/image-lightbox'
 import './About.css'
 
 const HERO_IMAGE = '/images/about/about-hero.png'
@@ -47,7 +48,7 @@ export function About() {
           </p>
           <div className="about-hero__visual">
             <div className="about-hero__frame">
-              <img
+              <ZoomableImage
                 src={HERO_IMAGE}
                 alt="Self-hosted homelab diagram: internet traffic through Cloudflare Tunnel to your VPS, Docker containers, privacy-first and routed services on your own server."
                 width={1400}

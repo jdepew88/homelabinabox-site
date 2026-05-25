@@ -1,0 +1,15 @@
+export const HOST_SETUP_SECTIONS = [
+  { id: 'host-setup-flow', label: 'Host setup flow' },
+  { id: 'choose-vps', label: 'Choose a VPS' },
+  { id: 'puttygen', label: 'SSH key with PuTTYgen' },
+  { id: 'pageant', label: 'Use Pageant' },
+  { id: 'putty-connect', label: 'Connect with PuTTY' },
+  { id: 'first-login', label: 'First login' },
+  { id: 'create-user', label: 'Create a non-root user' },
+  { id: 'copy-keys', label: 'Copy SSH key to user' },
+  { id: 'test-user', label: 'Test new user login' },
+  { id: 'updates', label: 'Basic updates' },
+  { id: 'ufw', label: 'UFW firewall' },
+  { id: 'hardening', label: 'Optional hardening' },
+  { id: 'next-install', label: 'Install the project' },
+] as const

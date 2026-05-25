@@ -1,3 +1,4 @@
+import { ZoomableImage } from './image-lightbox'
 import './ArchitectureTrafficFlow.css'
 
 const IMAGE_SRC = '/images/architecture/how-traffic-flows.png'
@@ -8,7 +9,7 @@ const ALT =
 export function ArchitectureTrafficFlow() {
   return (
     <figure className="architecture-flow">
-      <img
+      <ZoomableImage
         className="architecture-flow__img"
         src={IMAGE_SRC}
         alt={ALT}

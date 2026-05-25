@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SITE } from '../config'
+import { ZoomableImage } from './image-lightbox'
 import './Hero.css'
 
 const HERO_IMAGE = '/images/homelab-in-a-box-hero.png'
@@ -44,7 +45,7 @@ export function Hero() {
             <div className="hiab-hero__visual-glow" aria-hidden="true" />
             <div className="hiab-hero__card">
               <div className="hiab-hero__card-inner">
-                <img
+                <ZoomableImage
                   src={HERO_IMAGE}
                   alt="Homelab in a Box — server stack in a box with Traefik routing to app, media, and files subdomains on your domain"
                   className="hiab-hero__img"

@@ -329,15 +329,16 @@
 }
 
 .hiab-hero__cta--primary {
-  color: #0f172a;
-  background: #22d3ee;
-  border: 1px solid #22d3ee;
-  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);
+  color: #f8fafc;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 45%, #3b82f6 100%);
+  border: 1px solid #6366f1;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.38);
 }
 
 .hiab-hero__cta--primary:hover {
-  background: #67e8f9;
-  border-color: #67e8f9;
+  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 45%, #60a5fa 100%);
+  border-color: #818cf8;
+  color: #fff;
 }
 
 .hiab-hero__cta--secondary {

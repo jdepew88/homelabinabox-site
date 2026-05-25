@@ -219,6 +219,21 @@ img {
   border-color: var(--accent-hover);
 }
 
+/* Install CTA — purple / blue (header + hero) */
+.btn--install-cta {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 45%, #3b82f6 100%);
+  color: #f8fafc;
+  border-color: #6366f1;
+  box-shadow: 0 4px 18px color-mix(in srgb, #6366f1 40%, transparent);
+}
+
+.btn--install-cta:hover {
+  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 45%, #60a5fa 100%);
+  border-color: #818cf8;
+  color: #fff;
+  box-shadow: 0 6px 22px color-mix(in srgb, #6366f1 48%, transparent);
+}
+
 .btn--secondary {
   background: transparent;
   color: var(--text);

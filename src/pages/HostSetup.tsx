@@ -1,31 +1,58 @@
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
-import { DocLayout } from '../components/DocLayout'
-import { HostSetupFlow } from '../components/HostSetupFlow'
+import { ZoomableImage } from '../components/image-lightbox'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
+import { SectionJumpNav } from '../components/SectionJumpNav'
+import { HOST_SETUP_SECTIONS } from '../content/host-setup-sections'
+import './HostSetup.css'
+
+const HOST_SETUP_HERO_IMAGE = '/images/host-setup/host-setup-flow.png'
+
+const HOST_SETUP_HERO_ALT =
+  'How host setup flows: choose a VPS, SSH keys with PuTTYgen and Pageant, connect with PuTTY, create a non-root user, updates, UFW firewall, optional hardening, then install the project stack.'
 
 export function HostSetup() {
   return (
-    <DocLayout
-      title="Host Setup"
-      lead="Step 2: prepare a brand-new Debian or Ubuntu VPS for Homelab in a Box — from choosing a small Linode-style server through SSH keys, a sudo user, updates, and UFW."
-      toc={[
-        { id: 'host-setup-flow', label: 'Host setup flow' },
-        { id: 'choose-vps', label: 'Choose a VPS' },
-        { id: 'puttygen', label: 'SSH key with PuTTYgen' },
-        { id: 'pageant', label: 'Use Pageant' },
-        { id: 'putty-connect', label: 'Connect with PuTTY' },
-        { id: 'first-login', label: 'First login' },
-        { id: 'create-user', label: 'Create a non-root user' },
-        { id: 'copy-keys', label: 'Copy SSH key to user' },
-        { id: 'test-user', label: 'Test new user login' },
-        { id: 'updates', label: 'Basic updates' },
-        { id: 'ufw', label: 'UFW firewall' },
-        { id: 'hardening', label: 'Optional hardening' },
-        { id: 'next-install', label: 'Install the project' },
-      ]}
-    >
+    <article className="host-setup-page">
+      <header className="host-setup-hero">
+        <div className="host-setup-hero__backdrop" aria-hidden="true" />
+        <div className="host-setup-hero__grid" aria-hidden="true" />
+        <div className="host-setup-hero__inner">
+          <div className="host-setup-hero__layout">
+            <div className="host-setup-hero__copy">
+              <p className="host-setup-hero__eyebrow">Step 2 · Host prep</p>
+              <h1 className="host-setup-hero__title">
+                Prepare your VPS,{' '}
+                <span className="host-setup-hero__title-accent">then install.</span>
+              </h1>
+              <p className="host-setup-hero__lead">
+                Prepare a brand-new Debian or Ubuntu VPS — from choosing a small Linode-style server
+                through SSH keys, a sudo user, updates, and UFW.
+              </p>
+            </div>
+            <div className="host-setup-hero__visual" id="host-setup-flow">
+              <div className="host-setup-hero__frame">
+                <ZoomableImage
+                  src={HOST_SETUP_HERO_IMAGE}
+                  alt={HOST_SETUP_HERO_ALT}
+                  width={1200}
+                  height={675}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </div>
+              <p className="host-setup-hero__caption">
+                VPS → SSH keys → sudo user → UFW → ready for Homelab in a Box
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <SectionJumpNav sections={HOST_SETUP_SECTIONS} />
+
+      <div className="host-setup-shell host-setup-body">
       <p>
         Part of the <Link to="/install">Install guide</Link>. This page assumes a fresh VPS with
         no Docker or homelab software yet. Complete every step in order unless you already have a
@@ -40,8 +67,6 @@ export function HostSetup() {
           another tab until you have confirmed key login twice.
         </p>
       </Callout>
-
-      <HostSetupFlow />
 
       <h2 id="choose-vps">1. Choose a VPS</h2>
       <p>
@@ -352,7 +377,7 @@ sudo systemctl reload sshd`}
         on <Link to="/install">Install</Link>, not repeated here so host prep stays separate from
         application deploy.
       </p>
-      <div className="btn-group" style={{ marginTop: '1.25rem' }}>
+      <div className="host-setup-cta">
         <Link to="/install" className="btn btn--primary">
           Continue to Install
         </Link>
@@ -360,6 +385,7 @@ sudo systemctl reload sshd`}
           Cloudflare Setup
         </Link>
       </div>
-    </DocLayout>
+      </div>
+    </article>
   )
 }

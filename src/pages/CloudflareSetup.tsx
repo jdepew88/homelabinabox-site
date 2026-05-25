@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
-import { CloudflareSetupFlow } from '../components/CloudflareSetupFlow'
 import { CloudflareTunnelDiagram } from '../components/CloudflareTunnelDiagram'
 import { CodeBlock } from '../components/CodeBlock'
-import { DocLayout } from '../components/DocLayout'
+import { GuidePageHero } from '../components/GuidePageHero'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
 import { RoutingTroubleshooting } from '../components/RoutingTroubleshooting'
+import { SectionJumpNav } from '../components/SectionJumpNav'
+import { CLOUDFLARE_SECTIONS } from '../content/cloudflare-sections'
 import { COMMANDS, ENV_CLOUDFLARE_EXAMPLE, EXAMPLE_DOMAIN } from '../content/install'
+import './guide-page.css'
+
+const CLOUDFLARE_HERO_IMAGE = '/images/cloudflare/cloudflare-setup-flow.png'
+
+const CLOUDFLARE_HERO_ALT =
+  'How Cloudflare setup flows: buy a domain, move DNS to Cloudflare, create a tunnel, run cloudflared on the host, route through Traefik by subdomain to your container app.'
 
 const DEFAULT_ROUTES = [
   { host: `traefik.${EXAMPLE_DOMAIN}`, target: 'http://traefik:80', app: 'Traefik dashboard' },
@@ -16,31 +23,31 @@ const DEFAULT_ROUTES = [
 
 export function CloudflareSetup() {
   return (
-    <DocLayout
-      title="Cloudflare Setup"
-      lead="Step 3: connect your domain, DNS, and Cloudflare Tunnel so visitors reach Traefik over HTTPS without opening inbound 80/443 on your VPS."
-      toc={[
-        { id: 'cloudflare-setup-flow', label: 'Cloudflare setup flow' },
-        { id: 'what-cloudflare-does', label: 'What Cloudflare does' },
-        { id: 'domain', label: 'Register or use a domain' },
-        { id: 'env-vars', label: 'Required .env values' },
-        { id: 'api-token', label: 'API token notes' },
-        { id: 'automated', label: 'Automated setup script' },
-        { id: 'tunnel-profile', label: 'Start cloudflared profile' },
-        { id: 'check-cloudflared', label: 'Check cloudflared' },
-        { id: 'manual', label: 'Manual setup path' },
-        { id: 'troubleshooting', label: 'Troubleshooting' },
-        { id: 'next', label: 'Next step' },
-      ]}
-    >
+    <article className="guide-page">
+      <GuidePageHero
+        eyebrow="Step 3 · Cloudflare"
+        title={
+          <>
+            Connect your domain,{' '}
+            <span className="guide-hero__title-accent">tunnel, and edge.</span>
+          </>
+        }
+        lead="Connect your domain, DNS, and Cloudflare Tunnel so visitors reach Traefik over HTTPS without opening inbound 80/443 on your VPS."
+        imageSrc={CLOUDFLARE_HERO_IMAGE}
+        imageAlt={CLOUDFLARE_HERO_ALT}
+        caption="Domain → tunnel → Traefik → your apps on subdomains"
+        flowId="cloudflare-setup-flow"
+      />
+
+      <SectionJumpNav sections={CLOUDFLARE_SECTIONS} />
+
+      <div className="guide-shell guide-body">
       <p>
         Part of the <Link to="/install">Install guide</Link>. Complete{' '}
         <Link to="/host-setup">Host Setup</Link> and copy <code>.env.example</code> to{' '}
         <code>.env</code> before starting here.
       </p>
       <InstallFlowSteps />
-
-      <CloudflareSetupFlow />
 
       <h2 id="what-cloudflare-does">1. What Cloudflare does here</h2>
       <CloudflareTunnelDiagram />
@@ -352,7 +359,7 @@ export function CloudflareSetup() {
         <Link to="/install#verify">Verify Portainer, Traefik Manager, and Traefik</Link> ·{' '}
         <Link to="/authelia">Authelia later</Link>
       </p>
-      <div className="btn-group" style={{ marginTop: '1.25rem' }}>
+      <div className="guide-cta">
         <Link to="/install#verify" className="btn btn--primary">
           Verify routes
         </Link>
@@ -360,6 +367,7 @@ export function CloudflareSetup() {
           Install guide
         </Link>
       </div>
-    </DocLayout>
+      </div>
+    </article>
   )
 }

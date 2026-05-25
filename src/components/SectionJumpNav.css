@@ -1,4 +1,4 @@
-.install-subnav {
+.section-subnav {
   position: sticky;
   top: var(--nav-height);
   z-index: 20;
@@ -8,18 +8,30 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-.install-subnav__inner {
-  max-width: var(--install-shell-max, var(--prose-max));
+.section-subnav__inner {
+  max-width: var(--prose-max);
   margin: 0 auto;
   padding: 0.65rem 1.25rem;
 }
 
-.install-jump {
+.install-page .section-subnav__inner {
+  max-width: var(--install-shell-max, var(--prose-max));
+}
+
+.host-setup-page .section-subnav__inner {
+  max-width: var(--host-setup-shell-max, var(--prose-max));
+}
+
+.guide-page .section-subnav__inner {
+  max-width: var(--guide-shell-max, var(--prose-max));
+}
+
+.section-jump {
   position: relative;
   margin: 0;
 }
 
-.install-jump__trigger {
+.section-jump__trigger {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -39,22 +51,22 @@
     box-shadow 0.15s;
 }
 
-.install-jump__trigger::-webkit-details-marker {
+.section-jump__trigger::-webkit-details-marker {
   display: none;
 }
 
-.install-jump__trigger::marker {
+.section-jump__trigger::marker {
   content: '';
 }
 
-.install-jump__trigger:hover,
-.install-jump[open] > .install-jump__trigger {
+.section-jump__trigger:hover,
+.section-jump[open] > .section-jump__trigger {
   border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
   background: color-mix(in srgb, var(--accent-glow) 55%, var(--bg-card));
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
-.install-jump__chevron {
+.section-jump__chevron {
   width: 0.45rem;
   height: 0.45rem;
   border-right: 2px solid var(--text-dim);
@@ -63,12 +75,12 @@
   transition: transform 0.15s, border-color 0.15s;
 }
 
-.install-jump[open] .install-jump__chevron {
+.section-jump[open] .section-jump__chevron {
   transform: rotate(225deg) translate(1px, 1px);
   border-color: var(--accent);
 }
 
-.install-jump__menu {
+.section-jump__menu {
   position: absolute;
   left: 0;
   top: calc(100% + 0.45rem);
@@ -76,8 +88,6 @@
   min-width: min(18rem, calc(100vw - 2.5rem));
   max-height: min(18rem, 50vh);
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--accent) 28%, var(--border)) transparent;
   margin: 0;
   padding: 0.35rem;
   list-style: none;
@@ -89,7 +99,7 @@
     0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
-.install-jump__menu a {
+.section-jump__menu a {
   display: block;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
@@ -99,7 +109,7 @@
   transition: color 0.12s, background 0.12s;
 }
 
-.install-jump__menu a:hover {
+.section-jump__menu a:hover {
   color: var(--accent);
   background: var(--accent-glow);
   text-decoration: none;

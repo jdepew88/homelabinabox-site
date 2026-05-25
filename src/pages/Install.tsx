@@ -13,6 +13,7 @@ import {
   EXAMPLE_DOMAIN,
   SERVICE_PORTS,
 } from '../content/install'
+import { ZoomableImage } from '../components/image-lightbox'
 import './Install.css'
 
 const INSTALL_HERO_IMAGE = '/images/install/install-hero.png'
@@ -38,7 +39,7 @@ export function Install() {
             </div>
             <div className="install-hero__visual">
               <div className="install-hero__frame">
-                <img
+                <ZoomableImage
                   src={INSTALL_HERO_IMAGE}
                   alt="Homelab in a Box installation: Docker Compose on a server, Cloudflare Tunnel and Traefik routing, Portainer and Authelia services, with installation progress and system monitoring displays."
                   width={1024}

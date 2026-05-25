@@ -1,3 +1,4 @@
+import { ZoomableImage } from './image-lightbox'
 import './ArchitectureFeatureHighlights.css'
 
 const BASE = '/images/architecture/home-feature-highlights'
@@ -18,9 +19,10 @@ export function ArchitectureFeatureHighlights() {
           srcSet={SRCSET}
           sizes="(max-width: 520px) 67vw, (max-width: 900px) 62vw, 686px"
         />
-        <img
+        <ZoomableImage
           className="architecture-highlights__img"
           src={`${BASE}.png`}
+          lightboxSrc={`${BASE}.png`}
           srcSet={SRCSET}
           sizes="(max-width: 520px) 67vw, (max-width: 900px) 62vw, 686px"
           width={1024}

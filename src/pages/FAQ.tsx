@@ -5,6 +5,7 @@ import { CodeBlock } from '../components/CodeBlock'
 import { RoutingTroubleshooting } from '../components/RoutingTroubleshooting'
 import { SITE } from '../config'
 import { COMMANDS, EXAMPLE_DOMAIN } from '../content/install'
+import { ZoomableImage } from '../components/image-lightbox'
 import './FAQ.css'
 
 const FAQ_HERO_IMAGE = '/images/faq/faq-hero.png'
@@ -159,7 +160,7 @@ export function FAQ() {
             </div>
             <div className="faq-hero__visual">
               <div className="faq-hero__frame">
-                <img
+                <ZoomableImage
                   src={FAQ_HERO_IMAGE}
                   alt="Homelab in a Box FAQ: Cloudflare Tunnel routing to self-hosted apps, common setup questions, and a homelab server stack illustration."
                   width={1024}

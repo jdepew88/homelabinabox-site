@@ -1,27 +1,39 @@
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
-import { DocLayout } from '../components/DocLayout'
-import { AutheliaAccessFlow } from '../components/AutheliaAccessFlow'
+import { GuidePageHero } from '../components/GuidePageHero'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
+import { SectionJumpNav } from '../components/SectionJumpNav'
+import { AUTHELIA_SECTIONS } from '../content/authelia-sections'
 import { COMMANDS, SERVICE_PORTS } from '../content/install'
+import './guide-page.css'
+
+const AUTHELIA_HERO_IMAGE = '/images/authelia/protected-access-flow.png'
+
+const AUTHELIA_HERO_ALT =
+  'How protected access flows: browser over HTTPS to Cloudflare, through Cloudflare Tunnel and cloudflared to Traefik, Authelia login and policy check, then protected containers.'
 
 export function AutheliaSetup() {
   return (
-    <DocLayout
-      title="Authelia Setup"
-      lead="Step 6 — add authentication only after Traefik, cloudflared, Portainer, and Traefik Manager work through the tunnel."
-      toc={[
-        { id: 'protected-access-flow', label: 'Protected access flow' },
-        { id: 'when', label: 'When to enable' },
-        { id: 'prerequisite', label: 'Prerequisites' },
-        { id: 'profile', label: 'Auth profile' },
-        { id: 'middleware', label: 'Traefik middleware' },
-        { id: 'incremental', label: 'One router at a time' },
-        { id: 'users', label: 'Users and secrets' },
-        { id: 'test', label: 'Test' },
-      ]}
-    >
+    <article className="guide-page">
+      <GuidePageHero
+        eyebrow="Step 6 · Authelia"
+        title={
+          <>
+            Add authentication,{' '}
+            <span className="guide-hero__title-accent">after routing works.</span>
+          </>
+        }
+        lead="Add authentication only after Traefik, cloudflared, Portainer, and Traefik Manager work through the tunnel."
+        imageSrc={AUTHELIA_HERO_IMAGE}
+        imageAlt={AUTHELIA_HERO_ALT}
+        caption="Tunnel → Traefik → Authelia → protected dashboards and apps"
+        flowId="protected-access-flow"
+      />
+
+      <SectionJumpNav sections={AUTHELIA_SECTIONS} />
+
+      <div className="guide-shell guide-body">
       <InstallFlowSteps />
       <Callout variant="warn" title="Not part of bootstrap">
         <p>
@@ -29,8 +41,6 @@ export function AutheliaSetup() {
           routes work, you will chase redirect loops instead of fixing Traefik or tunnel config.
         </p>
       </Callout>
-
-      <AutheliaAccessFlow />
 
       <h2 id="when">When to enable</h2>
       <p>Enable Authelia only when all of the following are true:</p>
@@ -109,6 +119,7 @@ docker logs authelia --tail=50`} />
       <p>
         Issues? <Link to="/faq">FAQ</Link> · Return to <Link to="/install#verify">Install verification</Link>
       </p>
-    </DocLayout>
+      </div>
+    </article>
   )
 }

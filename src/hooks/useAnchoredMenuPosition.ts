@@ -1,6 +1,7 @@
 import { useLayoutEffect, type RefObject } from 'react'
 
-const GAP = 6
+/** Small overlap so the pointer path from trigger to menu stays on the menu hit target */
+const GAP = 2
 const VIEWPORT_PAD = 8
 
 /** Pins a flyout menu to the trigger with fixed positioning (avoids header/grid clipping). */

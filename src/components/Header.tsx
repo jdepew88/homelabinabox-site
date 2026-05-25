@@ -64,10 +64,10 @@ export function Header() {
           >
             GitHub
           </a>
-          <Link to="/install" className="btn btn--primary header__cta header__cta--long">
+          <Link to="/install" className="btn btn--install-cta header__cta header__cta--long">
             Start the Install
           </Link>
-          <Link to="/install" className="btn btn--primary header__cta header__cta--short">
+          <Link to="/install" className="btn btn--install-cta header__cta header__cta--short">
             Install
           </Link>
           <button
@@ -112,7 +112,7 @@ export function Header() {
         <div className="header__mobile-divider" />
         <Link
           to="/install"
-          className="btn btn--primary header__mobile-cta"
+          className="btn btn--install-cta header__mobile-cta"
           onClick={closeMenu}
           tabIndex={menuOpen ? undefined : -1}
         >

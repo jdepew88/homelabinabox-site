@@ -1,0 +1,85 @@
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem 1.5rem;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: image-lightbox-in 0.2s ease;
+}
+
+@keyframes image-lightbox-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.image-lightbox__close {
+  position: fixed;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 201;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text);
+  background: color-mix(in srgb, var(--bg-card) 92%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.image-lightbox__close:hover {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: var(--bg-elevated);
+}
+
+.image-lightbox__frame {
+  max-width: min(96rem, 100%);
+  max-height: calc(100dvh - 3rem);
+  margin: auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow:
+    0 24px 80px color-mix(in srgb, var(--bg) 70%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent);
+  background: var(--bg-card);
+}
+
+.image-lightbox__img {
+  display: block;
+  max-width: min(96vw, 100%);
+  max-height: calc(100dvh - 3.5rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.zoomable-image {
+  cursor: zoom-in;
+}
+
+.zoomable-image:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

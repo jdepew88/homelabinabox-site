@@ -1,3 +1,4 @@
+import { ZoomableImage } from './image-lightbox'
 import './CloudflareSetupFlow.css'
 
 const IMAGE_SRC = '/images/cloudflare/cloudflare-setup-flow.png'
@@ -12,7 +13,7 @@ type Props = {
 export function CloudflareSetupFlow({ id = 'cloudflare-setup-flow' }: Props) {
   return (
     <figure className="cloudflare-setup-flow" id={id}>
-      <img
+      <ZoomableImage
         className="cloudflare-setup-flow__img"
         src={IMAGE_SRC}
         alt={ALT}

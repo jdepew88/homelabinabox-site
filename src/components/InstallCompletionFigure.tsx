@@ -1,3 +1,4 @@
+import { ZoomableImage } from './image-lightbox'
 import './InstallCompletionFigure.css'
 
 const IMAGE_SRC = '/images/install/stack-complete.png'
@@ -11,7 +12,7 @@ export function InstallCompletionFigure({ id = 'install-complete' }: Props) {
   return (
     <figure className="install-complete" id={id}>
       <div className="install-complete__frame">
-        <img
+        <ZoomableImage
           src={IMAGE_SRC}
           alt="Stylized homelab command center: a glowing server box with routes to dashboards like Portainer, media, and git services on a local domain."
           width={1200}

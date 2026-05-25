@@ -1,3 +1,4 @@
+import { ZoomableImage } from './image-lightbox'
 import './AutheliaAccessFlow.css'
 
 const IMAGE_SRC = '/images/authelia/protected-access-flow.png'
@@ -12,7 +13,7 @@ type Props = {
 export function AutheliaAccessFlow({ id = 'protected-access-flow' }: Props) {
   return (
     <figure className="authelia-flow" id={id}>
-      <img
+      <ZoomableImage
         className="authelia-flow__img"
         src={IMAGE_SRC}
         alt={ALT}

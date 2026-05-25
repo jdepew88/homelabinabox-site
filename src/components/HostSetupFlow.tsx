@@ -1,3 +1,4 @@
+import { ZoomableImage } from './image-lightbox'
 import './HostSetupFlow.css'
 
 const IMAGE_SRC = '/images/host-setup/host-setup-flow.png'
@@ -12,7 +13,7 @@ type Props = {
 export function HostSetupFlow({ id = 'host-setup-flow' }: Props) {
   return (
     <figure className="host-setup-flow" id={id}>
-      <img
+      <ZoomableImage
         className="host-setup-flow__img"
         src={IMAGE_SRC}
         alt={ALT}
