@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
+import { CloudflareSetupFlow } from '../components/CloudflareSetupFlow'
 import { CloudflareTunnelDiagram } from '../components/CloudflareTunnelDiagram'
 import { CodeBlock } from '../components/CodeBlock'
 import { DocLayout } from '../components/DocLayout'
@@ -19,6 +20,7 @@ export function CloudflareSetup() {
       title="Cloudflare Setup"
       lead="Step 3: connect your domain, DNS, and Cloudflare Tunnel so visitors reach Traefik over HTTPS without opening inbound 80/443 on your VPS."
       toc={[
+        { id: 'cloudflare-setup-flow', label: 'Cloudflare setup flow' },
         { id: 'what-cloudflare-does', label: 'What Cloudflare does' },
         { id: 'domain', label: 'Register or use a domain' },
         { id: 'env-vars', label: 'Required .env values' },
@@ -37,6 +39,8 @@ export function CloudflareSetup() {
         <code>.env</code> before starting here.
       </p>
       <InstallFlowSteps />
+
+      <CloudflareSetupFlow />
 
       <h2 id="what-cloudflare-does">1. What Cloudflare does here</h2>
       <CloudflareTunnelDiagram />
