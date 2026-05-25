@@ -20,6 +20,9 @@ export function InstallCompletionFigure({ id = 'install-complete' }: Props) {
           decoding="async"
         />
       </div>
+      <p className="install-complete__tagline">
+        &ldquo;Homelab security, Vought-level confidence.&rdquo;
+      </p>
       <figcaption className="install-complete__caption">
         <strong>Bootstrap done.</strong> Traefik, tunnel, Portainer, and Traefik Manager are your
         control plane — add Authelia and new apps from here.
