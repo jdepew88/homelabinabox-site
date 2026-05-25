@@ -3,7 +3,8 @@ export const BRAND_ICON = '/logos/homelab-icon.png'
 
 export const SITE = {
   name: 'Homelab in a Box',
-  domain: 'homelabinabox.com',
+  domain: 'homelabinabox.app',
+  contactEmail: 'privacy@homelabinabox.app',
   tagline:
     'A beginner-friendly Docker stack with Traefik, Cloudflare Tunnel, Portainer, Traefik Manager, and optional Authelia — built to get a clean self-hosting baseline online fast.',
   github: 'https://github.com/jdepew88/homelabinabox-site',

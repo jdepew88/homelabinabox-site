@@ -3,7 +3,7 @@ import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
 import { DocLayout } from '../components/DocLayout'
 import { RoutingTroubleshooting } from '../components/RoutingTroubleshooting'
-import { COMMANDS } from '../content/install'
+import { COMMANDS, EXAMPLE_DOMAIN } from '../content/install'
 
 const FAQ_ITEMS = [
   {
@@ -54,7 +54,7 @@ const FAQ_ITEMS = [
     a: (
       <p>
         Point the tunnel hostname at <code>http://traefik:80</code>, not at Portainer directly.
-        Traefik routes <code>Host: port.yourdomain.com</code> to Portainer on internal port{' '}
+        Traefik routes <code>{`Host: port.${EXAMPLE_DOMAIN}`}</code> to Portainer on internal port{' '}
         <code>9000</code>.
       </p>
     ),

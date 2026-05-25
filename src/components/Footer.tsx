@@ -23,6 +23,7 @@ export function Footer() {
             <h4>Project</h4>
             <ul>
               <li><Link to="/about">About</Link></li>
+              <li><Link to="/privacy">Privacy Policy</Link></li>
               <li>
                 <a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>
               </li>

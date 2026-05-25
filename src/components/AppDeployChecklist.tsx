@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { EXAMPLE_DOMAIN } from '../content/install'
 import './AppDeployChecklist.css'
+
+const EXAMPLE_APP_HOST = `app.${EXAMPLE_DOMAIN}`
 
 export type DeployCheckStep = {
   title: string
@@ -79,11 +82,11 @@ const PHASES: DeployCheckPhase[] = [
       {
         title: 'Local curl passes',
         detail: 'Host header test against loopback returns 200, 301, or 302 — not 404 or 502.',
-        mono: 'curl -I -H "Host: app.yourdomain.com" http://127.0.0.1',
+        mono: `curl -I -H "Host: ${EXAMPLE_APP_HOST}" http://127.0.0.1`,
       },
       {
         title: 'Browser test over HTTPS',
-        detail: 'Open https://your-subdomain.yourdomain.com in a private window after local tests pass.',
+        detail: `Open https://${EXAMPLE_APP_HOST} in a private window after local tests pass.`,
       },
     ],
   },
@@ -93,7 +96,7 @@ type Props = {
   exampleHost?: string
 }
 
-export function AppDeployChecklist({ exampleHost = 'app.yourdomain.com' }: Props) {
+export function AppDeployChecklist({ exampleHost = EXAMPLE_APP_HOST }: Props) {
   return (
     <div className="app-checklist" role="list" aria-label="Go-live checklist for a new app">
       <p className="app-checklist__intro">

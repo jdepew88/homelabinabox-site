@@ -4,8 +4,8 @@ import { SITE } from '../config'
 export const REPO_CLONE_URL = `${SITE.github}.git`
 export const REPO_DIR = 'Homelab-in-a-box'
 
-/** Example domain for public docs — not a real deployment hostname. */
-export const EXAMPLE_DOMAIN = 'yourdomain.com'
+/** Example domain used in docs (this site and sample stack hostnames). */
+export const EXAMPLE_DOMAIN = 'homelabinabox.app'
 
 /** Do not recommend this command (see COMPOSE_BOOTSTRAP_AVOID_WHY). */
 export const COMPOSE_BOOTSTRAP_AVOID_CMD =

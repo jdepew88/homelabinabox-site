@@ -46,7 +46,7 @@ export function About() {
         <p>
           Guides are published at{' '}
           <a href={`https://${SITE.domain}`}>{SITE.domain}</a>. Examples use{' '}
-          <code>yourdomain.com</code> as a placeholder — substitute your own domain in{' '}
+          <code>{SITE.domain}</code> in examples — substitute your own apex domain in{' '}
           <code>.env</code> and DNS.
         </p>
       </Callout>

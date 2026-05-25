@@ -5,12 +5,12 @@ import { CodeBlock } from '../components/CodeBlock'
 import { DocLayout } from '../components/DocLayout'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
 import { RoutingTroubleshooting } from '../components/RoutingTroubleshooting'
-import { COMMANDS, ENV_CLOUDFLARE_EXAMPLE } from '../content/install'
+import { COMMANDS, ENV_CLOUDFLARE_EXAMPLE, EXAMPLE_DOMAIN } from '../content/install'
 
 const DEFAULT_ROUTES = [
-  { host: 'traefik.yourdomain.com', target: 'http://traefik:80', app: 'Traefik dashboard' },
-  { host: 'manager.yourdomain.com', target: 'http://traefik:80', app: 'Traefik Manager' },
-  { host: 'port.yourdomain.com', target: 'http://traefik:80', app: 'Portainer' },
+  { host: `traefik.${EXAMPLE_DOMAIN}`, target: 'http://traefik:80', app: 'Traefik dashboard' },
+  { host: `manager.${EXAMPLE_DOMAIN}`, target: 'http://traefik:80', app: 'Traefik Manager' },
+  { host: `port.${EXAMPLE_DOMAIN}`, target: 'http://traefik:80', app: 'Portainer' },
 ] as const
 
 export function CloudflareSetup() {
@@ -43,7 +43,7 @@ export function CloudflareSetup() {
       <p>End-to-end path for a typical dashboard URL (for example Portainer):</p>
       <ol>
         <li>
-          <strong>Browser</strong> — user opens <code>https://port.yourdomain.com</code>.
+          <strong>Browser</strong> — user opens <code>{`https://port.${EXAMPLE_DOMAIN}`}</code>.
         </li>
         <li>
           <strong>Cloudflare HTTPS</strong> — Cloudflare terminates TLS and presents a valid public
@@ -135,7 +135,7 @@ export function CloudflareSetup() {
           (filled by script or copied from the dashboard).
         </li>
         <li>
-          <code>DOMAIN</code> — apex domain, e.g. <code>yourdomain.com</code>.
+          <code>DOMAIN</code> — apex domain, e.g. <code>{EXAMPLE_DOMAIN}</code>.
         </li>
         <li>
           <code>SUBDOMAIN_*</code> — host labels; full URLs become{' '}
@@ -222,7 +222,7 @@ export function CloudflareSetup() {
           </tbody>
         </table>
         <p style={{ margin: '0.75rem 0 0', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-          Replace <code>yourdomain.com</code> with your <code>DOMAIN</code> and match{' '}
+          Replace <code>{EXAMPLE_DOMAIN}</code> with your <code>DOMAIN</code> and match{' '}
           <code>SUBDOMAIN_*</code> in <code>.env</code>.
         </p>
       </div>
@@ -281,13 +281,13 @@ export function CloudflareSetup() {
           Add <strong>Public Hostnames</strong> (each → <code>http://traefik:80</code>):
           <ul>
             <li>
-              <code>traefik.yourdomain.com</code> → <code>http://traefik:80</code>
+              <code>{`traefik.${EXAMPLE_DOMAIN}`}</code> → <code>http://traefik:80</code>
             </li>
             <li>
-              <code>manager.yourdomain.com</code> → <code>http://traefik:80</code>
+              <code>{`manager.${EXAMPLE_DOMAIN}`}</code> → <code>http://traefik:80</code>
             </li>
             <li>
-              <code>port.yourdomain.com</code> → <code>http://traefik:80</code>
+              <code>{`port.${EXAMPLE_DOMAIN}`}</code> → <code>http://traefik:80</code>
             </li>
           </ul>
         </li>
@@ -323,7 +323,7 @@ export function CloudflareSetup() {
         </li>
         <li>
           <strong>DNS delay</strong> — new records can take time; check with{' '}
-          <code>dig port.yourdomain.com</code> or an online DNS checker.
+          <code>{`dig port.${EXAMPLE_DOMAIN}`}</code> or an online DNS checker.
         </li>
         <li>
           <strong>Public hostname must point to the tunnel</strong> — in Zero Trust, each hostname

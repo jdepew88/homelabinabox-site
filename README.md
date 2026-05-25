@@ -1,12 +1,12 @@
-# homelabinabox.com — Documentation site
+# homelabinabox.app — Documentation site
 
-Marketing and install documentation for **[Homelab in a Box](https://homelabinabox.com)** — a beginner-friendly Docker stack (Traefik, Cloudflare Tunnel, Portainer, Traefik Manager, optional Authelia).
+Marketing and install documentation for **[Homelab in a Box](https://homelabinabox.app)** — a beginner-friendly Docker stack (Traefik, Cloudflare Tunnel, Portainer, Traefik Manager, optional Authelia).
 
 The Docker Compose homelab project lives separately: [github.com/jdepew88/Homelab-in-a-box](https://github.com/jdepew88/Homelab-in-a-box).
 
 ## Live site
 
-**https://homelabinabox.com**
+**https://homelabinabox.app**
 
 ## Local development
 
@@ -40,7 +40,7 @@ Same layout as [jrtechnicalconsulting.com](https://jrtechnicalconsulting.com) �
 
 SPA routing: `public/_redirects` (`/* /index.html 200`).
 
-Connect custom domain `homelabinabox.com` in the Pages project (not a Worker).
+Connect custom domain `homelabinabox.app` in the Pages project (not a Worker).
 
 Logo workflow: [docs/LOGOS.md](docs/LOGOS.md)
 
