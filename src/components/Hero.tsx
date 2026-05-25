@@ -48,8 +48,8 @@ export function Hero() {
                   src={HERO_IMAGE}
                   alt="Homelab in a Box — server stack in a box with Traefik routing to app, media, and files subdomains on your domain"
                   className="hiab-hero__img"
-                  width={1200}
-                  height={900}
+                  width={1024}
+                  height={1024}
                   fetchPriority="high"
                   decoding="async"
                 />
