@@ -181,12 +181,12 @@
 .hiab-hero__img {
   display: block;
   width: 100%;
-  max-width: 28rem;
+  max-width: 36rem;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
-  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5))
-    drop-shadow(0 0 40px rgba(34, 211, 238, 0.15));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 48px rgba(34, 211, 238, 0.18));
 }
 
 .hiab-hero__chips {

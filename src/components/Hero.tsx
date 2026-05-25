@@ -2,18 +2,9 @@ import { Link } from 'react-router-dom'
 import { SITE } from '../config'
 import './Hero.css'
 
-const HERO_LOGO = '/images/homelab-in-a-box-logo.png'
+const HERO_IMAGE = '/images/homelab-in-a-box-hero.png'
 
 const TRAFFIC_FLOW = ['Browser', 'Cloudflare', 'Tunnel', 'Traefik', 'Containers'] as const
-
-const FLOATING_BADGES = [
-  { label: 'Traefik', corner: 'tl' },
-  { label: 'Docker Compose', corner: 'tr' },
-  { label: 'Cloudflare Tunnel', corner: 'bl' },
-  { label: 'Portainer', corner: 'br' },
-] as const
-
-const STACK_CHIPS = ['Docker', 'Traefik', 'Cloudflare', 'Portainer'] as const
 
 const STAT_BADGES = [
   'Debian / Ubuntu VPS',
@@ -53,30 +44,15 @@ export function Hero() {
             <div className="hiab-hero__visual-glow" aria-hidden="true" />
             <div className="hiab-hero__card">
               <div className="hiab-hero__card-inner">
-                {FLOATING_BADGES.map(({ label, corner }) => (
-                  <span
-                    key={label}
-                    className={`hiab-hero__badge hiab-hero__badge--${corner}`}
-                  >
-                    {label}
-                  </span>
-                ))}
                 <img
-                  src={HERO_LOGO}
-                  alt="Homelab in a Box — open server box routing containers to app subdomains"
+                  src={HERO_IMAGE}
+                  alt="Homelab in a Box — server stack in a box with Traefik routing to app, media, and files subdomains on your domain"
                   className="hiab-hero__img"
-                  width={1024}
-                  height={1024}
+                  width={1200}
+                  height={900}
                   fetchPriority="high"
                   decoding="async"
                 />
-                <div className="hiab-hero__chips" aria-hidden="true">
-                  {STACK_CHIPS.map((name) => (
-                    <span key={name} className="hiab-hero__chip">
-                      {name}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
