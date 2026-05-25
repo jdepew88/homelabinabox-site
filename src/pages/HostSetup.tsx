@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
 import { DocLayout } from '../components/DocLayout'
+import { HostSetupFlow } from '../components/HostSetupFlow'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
 
 export function HostSetup() {
@@ -10,6 +11,7 @@ export function HostSetup() {
       title="Host Setup"
       lead="Step 2: prepare a brand-new Debian or Ubuntu VPS for Homelab in a Box — from choosing a small Linode-style server through SSH keys, a sudo user, updates, and UFW."
       toc={[
+        { id: 'host-setup-flow', label: 'Host setup flow' },
         { id: 'choose-vps', label: 'Choose a VPS' },
         { id: 'puttygen', label: 'SSH key with PuTTYgen' },
         { id: 'pageant', label: 'Use Pageant' },
@@ -38,6 +40,8 @@ export function HostSetup() {
           another tab until you have confirmed key login twice.
         </p>
       </Callout>
+
+      <HostSetupFlow />
 
       <h2 id="choose-vps">1. Choose a VPS</h2>
       <p>
