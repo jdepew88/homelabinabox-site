@@ -8,12 +8,6 @@ export function About() {
     <DocLayout
       title="About"
       lead="Homelab in a Box is an opinionated starter stack for self-hosting on a single Debian or Ubuntu machine."
-      toc={[
-        { id: 'why', label: 'Why this project exists' },
-        { id: 'philosophy', label: 'Design philosophy' },
-        { id: 'not', label: 'What it is not' },
-        { id: 'contribute', label: 'Contributing' },
-      ]}
     >
       <h2 id="why">Why this project exists</h2>
       <p>
