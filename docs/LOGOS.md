@@ -38,11 +38,11 @@ The site references `/logos/{id}-128.png` on cards. If the file is missing, a **
 
 ## Architecture diagram (homepage)
 
-`public/images/architecture/architecture-traffic-flow.png` — “How traffic flows” panel.
+`public/images/architecture/how-traffic-flows.png` — full “How traffic flows” graphic (title and copy are baked into the image).
 
-Responsive variants: `architecture-traffic-flow-480w.png` through `-1024w.png`.
+Optional responsive variants: `how-traffic-flows-480w.png` through `-1024w.png` if you run the resize script.
 
-Replace `public/images/architecture/source/architecture-traffic-flow.png` and run:
+Replace `public/images/architecture/source/how-traffic-flows.png` and run:
 
 ```bash
 python3 scripts/resize-architecture.py
