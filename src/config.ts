@@ -7,7 +7,7 @@ export const SITE = {
   contactEmail: 'privacy@homelabinabox.app',
   tagline:
     'A beginner-friendly Docker stack with Traefik, Cloudflare Tunnel, Portainer, Traefik Manager, and optional Authelia — built to get a clean self-hosting baseline online fast.',
-  github: 'https://github.com/jdepew88/homelabinabox-site',
+  github: 'https://github.com/jdepew88/Homelab-in-a-box',
   buyMeACoffee: 'https://buymeacoffee.com/homelab.in.a.box',
   license: 'MIT',
 } as const
