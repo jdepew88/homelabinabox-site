@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
 import { DocLayout } from '../components/DocLayout'
+import { AutheliaAccessFlow } from '../components/AutheliaAccessFlow'
 import { InstallFlowSteps } from '../components/InstallFlowSteps'
 import { COMMANDS, SERVICE_PORTS } from '../content/install'
 
@@ -11,6 +12,7 @@ export function AutheliaSetup() {
       title="Authelia Setup"
       lead="Step 6 — add authentication only after Traefik, cloudflared, Portainer, and Traefik Manager work through the tunnel."
       toc={[
+        { id: 'protected-access-flow', label: 'Protected access flow' },
         { id: 'when', label: 'When to enable' },
         { id: 'prerequisite', label: 'Prerequisites' },
         { id: 'profile', label: 'Auth profile' },
@@ -27,6 +29,8 @@ export function AutheliaSetup() {
           routes work, you will chase redirect loops instead of fixing Traefik or tunnel config.
         </p>
       </Callout>
+
+      <AutheliaAccessFlow />
 
       <h2 id="when">When to enable</h2>
       <p>Enable Authelia only when all of the following are true:</p>
