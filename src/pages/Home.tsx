@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { ArchitectureFeatureHighlights } from '../components/ArchitectureFeatureHighlights'
 import { ArchitectureTrafficFlow } from '../components/ArchitectureTrafficFlow'
 import { Callout } from '../components/Callout'
 import { Hero } from '../components/Hero'
@@ -47,26 +46,8 @@ export function Home() {
 
       <section className="section section--tight home-section home-section--alt">
         <div className="container">
-          <div className="section-title home-architecture-title">
-            <p className="home-architecture-title__eyebrow">
-              <span
-                className="home-architecture-title__rule home-architecture-title__rule--start"
-                aria-hidden="true"
-              />
-              <span className="home-architecture-title__label">Architecture</span>
-              <span
-                className="home-architecture-title__rule home-architecture-title__rule--end"
-                aria-hidden="true"
-              />
-            </p>
-            <h2>
-              How <span className="home-architecture-title__gradient">traffic</span> flows
-            </h2>
-            <p>HTTPS at Cloudflare; plain HTTP to Traefik inside Docker.</p>
-          </div>
           <div className="home-flow-panel home-flow-panel--diagram">
             <ArchitectureTrafficFlow />
-            <ArchitectureFeatureHighlights />
           </div>
         </div>
       </section>
