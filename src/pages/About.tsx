@@ -45,6 +45,56 @@ export function About() {
         </p>
       </Callout>
 
+      <h2 id="coming-soon">Coming soon</h2>
+      <p>
+        Active work on the stack repo and this site. Nothing here is a release promise — it is
+        the direction we are building toward.
+      </p>
+
+      <h3>Homelab stack and Cloudflare</h3>
+      <ul>
+        <li>
+          <strong>Cloudflare API integration</strong> — automate more of zone, tunnel, and token
+          setup instead of hand-copying dashboard values.
+        </li>
+        <li>
+          <strong>Streamlined Zero Trust hostnames</strong> — clearer paths to add new container
+          routes to the Cloudflare Tunnel (alongside Traefik Manager), with less dashboard hunting.
+        </li>
+        <li>
+          <strong>New host setup script</strong> — a refreshed script in the Homelab-in-a-box repo
+          for preparing Debian/Ubuntu hosts before Compose.
+        </li>
+      </ul>
+
+      <h3>Documentation and site</h3>
+      <ul>
+        <li>
+          <strong>SSH for Mac and Linux</strong> — OpenSSH workflows on Debian and Ubuntu (
+          <code>ssh-keygen</code>, <code>ssh-copy-id</code>, and native terminals), not only
+          PuTTY/Pageant on Windows. <Link to="/host-setup">Host Setup</Link> will keep Windows
+          steps and add parallel paths.
+        </li>
+        <li>
+          <strong>Improved theming</strong> — refined presets, contrast, and layout polish across
+          doc pages.
+        </li>
+        <li>
+          <strong>General site updates</strong> — better aesthetics, navigation, and ease of use
+          as the docs grow.
+        </li>
+      </ul>
+
+      <Callout variant="tip" title="Ideas welcome">
+        <p>
+          If a coming-soon item would help you most, open an issue on{' '}
+          <a href={SITE.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>{' '}
+          — stack changes and site docs can be tracked separately.
+        </p>
+      </Callout>
+
       <h2 id="contribute">Contributing</h2>
       <p>
         Issues and pull requests are welcome on{' '}
