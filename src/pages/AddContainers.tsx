@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { AppDeployChecklist } from '../components/AppDeployChecklist'
+import { AppExpansionFlow } from '../components/AppExpansionFlow'
 import { Callout } from '../components/Callout'
 import { CodeBlock } from '../components/CodeBlock'
 import { DocLayout } from '../components/DocLayout'
@@ -46,6 +47,7 @@ export function AddContainers() {
       title="Add More Containers"
       lead="Deploy apps in Portainer, publish them with Traefik Manager, and keep every public hostname pointed at Traefik — same workflow for every new service."
       toc={[
+        { id: 'app-expansion-flow', label: 'App expansion flow' },
         { id: 'roles', label: 'Who does what' },
         { id: 'pattern', label: 'Workflow' },
         { id: 'checklist', label: 'Go-live checklist' },
@@ -66,16 +68,7 @@ export function AddContainers() {
         </p>
       </Callout>
 
-      <div className="add-containers-flow-hint">
-        <strong>Flow:</strong>
-        <span>Portainer</span>
-        <span aria-hidden="true">→</span>
-        <span>proxy network</span>
-        <span aria-hidden="true">→</span>
-        <span>Traefik Manager route</span>
-        <span aria-hidden="true">→</span>
-        <span>curl + browser</span>
-      </div>
+      <AppExpansionFlow />
 
       <h2 id="roles">Who does what</h2>
       <div className={boxGridClass(4)}>
