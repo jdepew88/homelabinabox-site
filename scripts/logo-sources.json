@@ -1,0 +1,8 @@
+[
+  {
+    "slug": "traefik",
+    "url": "https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png",
+    "ext": "png",
+    "comment": "Optional — verify license before committing. Prefer manual brand assets in source/."
+  }
+]

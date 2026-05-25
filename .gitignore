@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+website/node_modules/
+
+# Build output (Cloudflare Pages builds from source)
+website/dist/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and caches
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+website/node_modules/.vite/
+website/node_modules/.tmp/
+
+# Cursor / local assets (uploaded reference images)
+assets/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/

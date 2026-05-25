@@ -1,0 +1,71 @@
+.theme-picker--select {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.theme-picker__label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.theme-picker--select select {
+  font-family: var(--font);
+  font-size: 0.8125rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  cursor: pointer;
+  max-width: 9.5rem;
+}
+
+.theme-picker--select select:hover {
+  border-color: var(--text-muted);
+}
+
+.theme-picker--swatches {
+  padding: 0.75rem 0;
+}
+
+.theme-picker--swatches .theme-picker__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.theme-picker__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.theme-swatch {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+}
+
+.theme-swatch--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.theme-swatch__bg,
+.theme-swatch__accent {
+  position: absolute;
+  inset: 0;
+}
+
+.theme-swatch__accent {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}

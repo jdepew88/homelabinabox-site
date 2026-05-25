@@ -1,0 +1,471 @@
+/* Homepage hero — scoped styles only (no Tailwind) */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hiab-hero {
+  position: relative;
+  overflow: hidden;
+  color: #f1f5f9;
+  background: #071024;
+}
+
+.hiab-hero__backdrop {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(56, 189, 248, 0.2), transparent 32%),
+    radial-gradient(circle at 82% 38%, rgba(34, 197, 94, 0.12), transparent 34%),
+    linear-gradient(180deg, #0b1633 0%, #071024 58%, #050a16 100%);
+}
+
+.hiab-hero__grid-pattern {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background-image:
+    linear-gradient(to right, #38bdf8 1px, transparent 1px),
+    linear-gradient(to bottom, #38bdf8 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 40%, black 20%, transparent 75%);
+}
+
+.hiab-hero__container {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 3rem;
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__container {
+    padding: 4.5rem 1.75rem 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hiab-hero__container {
+    padding: 5.5rem 2rem 4rem;
+  }
+}
+
+.hiab-hero__layout {
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .hiab-hero__layout {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 3rem 3.5rem;
+  }
+
+  .hiab-hero__copy {
+    order: 2;
+  }
+
+  .hiab-hero__visual {
+    order: 1;
+  }
+}
+
+/* —— Product visual —— */
+.hiab-hero__visual {
+  position: relative;
+  max-width: 34rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hiab-hero__visual {
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.hiab-hero__visual-glow {
+  position: absolute;
+  inset: -12% -8%;
+  border-radius: 2rem;
+  background: radial-gradient(ellipse at 50% 55%, rgba(34, 211, 238, 0.35), transparent 68%);
+  filter: blur(28px);
+}
+
+.hiab-hero__card {
+  position: relative;
+  padding: 1rem;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(103, 232, 249, 0.22);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 24px 48px rgba(0, 0, 0, 0.45),
+    0 0 80px rgba(34, 211, 238, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__card {
+    padding: 1.25rem 1.35rem 1.15rem;
+  }
+}
+
+.hiab-hero__card-inner {
+  position: relative;
+  padding: 1.25rem 0.75rem 0.5rem;
+  border-radius: 1.25rem;
+  /* Let RGBA logo show the hero gradient through transparent pixels */
+  background: transparent;
+  border: none;
+}
+
+.hiab-hero__badge {
+  position: absolute;
+  z-index: 2;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #cffafe;
+  background: rgba(2, 6, 23, 0.92);
+  border: 1px solid rgba(103, 232, 249, 0.28);
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+.hiab-hero__badge--tl {
+  top: 0.65rem;
+  left: 0.65rem;
+}
+
+.hiab-hero__badge--tr {
+  top: 0.65rem;
+  right: 0.65rem;
+}
+
+.hiab-hero__badge--bl {
+  bottom: 3.25rem;
+  left: 0.65rem;
+  border-color: rgba(52, 211, 153, 0.28);
+  color: #d1fae5;
+}
+
+.hiab-hero__badge--br {
+  bottom: 3.25rem;
+  right: 0.65rem;
+  border-color: rgba(52, 211, 153, 0.28);
+  color: #d1fae5;
+}
+
+.hiab-hero__img {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 40px rgba(34, 211, 238, 0.15));
+}
+
+.hiab-hero__chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding: 0 0.35rem;
+}
+
+@media (min-width: 480px) {
+  .hiab-hero__chips {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hiab-hero__chip {
+  text-align: center;
+  padding: 0.45rem 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #a5f3fc;
+  background: rgba(34, 211, 238, 0.06);
+  border: 1px solid rgba(103, 232, 249, 0.15);
+  border-radius: 0.65rem;
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__chip {
+    font-size: 0.7rem;
+  }
+}
+
+/* —— Copy —— */
+.hiab-hero__eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #67e8f9;
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__eyebrow {
+    font-size: 0.8125rem;
+  }
+}
+
+.hiab-hero__title {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.hiab-hero__title-accent {
+  background: linear-gradient(125deg, #67e8f9 0%, #60a5fa 45%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hiab-hero__subhead {
+  margin: 1.25rem 0 0;
+  max-width: 38rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__subhead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+.hiab-hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 480px) {
+  .hiab-hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.hiab-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.35rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 0.75rem;
+  text-decoration: none !important;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.15s;
+}
+
+.hiab-hero__cta--primary {
+  color: #0f172a;
+  background: #22d3ee;
+  border: 1px solid #22d3ee;
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);
+}
+
+.hiab-hero__cta--primary:hover {
+  background: #67e8f9;
+  border-color: #67e8f9;
+}
+
+.hiab-hero__cta--secondary {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.hiab-hero__cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.hiab-hero__tagline {
+  margin: 1.1rem 0 0;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.hiab-hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.35rem;
+}
+
+.hiab-hero__pill {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #cffafe;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(103, 232, 249, 0.18);
+  border-radius: 999px;
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__pill {
+    font-size: 0.8125rem;
+    padding: 0.45rem 1rem;
+  }
+}
+
+/* —— Traffic flow —— */
+.hiab-hero__flow {
+  margin-top: 2.75rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+}
+
+.hiab-hero__flow-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .hiab-hero__flow-track {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem 0.5rem;
+  }
+}
+
+.hiab-hero__flow-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .hiab-hero__flow-step {
+    flex: 1 1 auto;
+  }
+}
+
+.hiab-hero__flow-node {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgba(2, 6, 23, 0.75);
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  border-radius: 0.75rem;
+}
+
+.hiab-hero__flow-arrow {
+  flex-shrink: 0;
+  color: rgba(103, 232, 249, 0.65);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 767px) {
+  .hiab-hero__flow-arrow {
+    align-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+/* —— Feature cards —— */
+.hiab-hero__features {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .hiab-hero__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hiab-hero__features {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+
+.hiab-hero__feature {
+  padding: 1.15rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.hiab-hero__feature:hover {
+  border-color: rgba(103, 232, 249, 0.22);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hiab-hero__feature h3 {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #a5f3fc;
+}
+
+.hiab-hero__feature p {
+  margin: 0.5rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: #94a3b8;
+}

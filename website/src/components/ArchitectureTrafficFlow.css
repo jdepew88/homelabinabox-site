@@ -1,0 +1,19 @@
+.architecture-flow {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.architecture-flow__img {
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+}
+
+.home-flow-panel .architecture-flow__img {
+  max-width: 100%;
+}

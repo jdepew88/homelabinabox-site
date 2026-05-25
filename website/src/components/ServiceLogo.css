@@ -1,0 +1,31 @@
+.service-logo {
+  flex-shrink: 0;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.service-logo--img {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 4px;
+}
+
+.service-logo--placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.service-logo__initials {
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}

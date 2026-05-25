@@ -1,0 +1,110 @@
+/**
+ * Color themes — same presets as TabStack (no custom backgrounds).
+ * Applied via <html data-theme="…">.
+ */
+
+:root,
+html[data-theme='zinc'] {
+  --bg: #09090b;
+  --bg-elevated: #111113;
+  --bg-card: #18181b;
+  --border: #27272a;
+  --border-subtle: #1f1f23;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
+  --accent: #84cc16;
+  --accent-hover: #a3e635;
+  --accent-dim: #65a30d;
+  --accent-glow: rgba(132, 204, 22, 0.15);
+  --accent-blue: #38bdf8;
+  --btn-on-accent: #0a0f04;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --hero-glow: rgba(132, 204, 22, 0.12);
+  --hero-badge-border: rgba(132, 204, 22, 0.28);
+}
+
+html[data-theme='emerald'] {
+  --bg: #022c22;
+  --bg-elevated: #064e3b;
+  --bg-card: #065f46;
+  --border: #047857;
+  --border-subtle: #064e3b;
+  --text: #ecfdf5;
+  --text-muted: #6ee7b7;
+  --text-dim: #34d399;
+  --accent: #34d399;
+  --accent-hover: #6ee7b7;
+  --accent-dim: #059669;
+  --accent-glow: rgba(52, 211, 153, 0.16);
+  --accent-blue: #2dd4bf;
+  --btn-on-accent: #022c22;
+  --warning: #fcd34d;
+  --danger: #fca5a5;
+  --hero-glow: rgba(52, 211, 153, 0.14);
+  --hero-badge-border: rgba(52, 211, 153, 0.35);
+}
+
+html[data-theme='ocean'] {
+  --bg: #0f172a;
+  --bg-elevated: #172554;
+  --bg-card: #1e3a5f;
+  --border: #334155;
+  --border-subtle: #1e293b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --accent: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --accent-dim: #0284c7;
+  --accent-glow: rgba(56, 189, 248, 0.16);
+  --accent-blue: #60a5fa;
+  --btn-on-accent: #0c1929;
+  --warning: #fde68a;
+  --danger: #fca5a5;
+  --hero-glow: rgba(56, 189, 248, 0.14);
+  --hero-badge-border: rgba(56, 189, 248, 0.35);
+}
+
+html[data-theme='sunset'] {
+  --bg: #1c0a0f;
+  --bg-elevated: #3b0a1a;
+  --bg-card: #451a1a;
+  --border: #7f1d1d;
+  --border-subtle: #3b0a1a;
+  --text: #fff1f2;
+  --text-muted: #fda4af;
+  --text-dim: #fb7185;
+  --accent: #fb923c;
+  --accent-hover: #fdba74;
+  --accent-dim: #ea580c;
+  --accent-glow: rgba(251, 146, 60, 0.16);
+  --accent-blue: #f472b6;
+  --btn-on-accent: #1c0a0f;
+  --warning: #fde68a;
+  --danger: #fecaca;
+  --hero-glow: rgba(251, 146, 60, 0.14);
+  --hero-badge-border: rgba(251, 146, 60, 0.35);
+}
+
+html[data-theme='crimson'] {
+  --bg: #0a0505;
+  --bg-elevated: #1f0a0f;
+  --bg-card: #2a0b12;
+  --border: #450a0a;
+  --border-subtle: #1f0a0f;
+  --text: #fef2f2;
+  --text-muted: #fca5a5;
+  --text-dim: #f87171;
+  --accent: #f87171;
+  --accent-hover: #fca5a5;
+  --accent-dim: #dc2626;
+  --accent-glow: rgba(248, 113, 113, 0.16);
+  --accent-blue: #fb7185;
+  --btn-on-accent: #0a0505;
+  --warning: #fcd34d;
+  --danger: #fecaca;
+  --hero-glow: rgba(248, 113, 113, 0.14);
+  --hero-badge-border: rgba(248, 113, 113, 0.35);
+}

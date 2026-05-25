@@ -1,0 +1,17 @@
+.architecture-highlights {
+  margin: 0.5rem auto 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: 686px; /* 67% of 1024px — sits under traffic-flow diagram */
+}
+
+/* Section alt bg shows through transparent PNG edges */
+.architecture-highlights__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35));
+}

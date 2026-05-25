@@ -1,0 +1,128 @@
+[
+  {
+    "id": "traefik",
+    "placeholderInitials": "T",
+    "color": [
+      0,
+      184,
+      148
+    ]
+  },
+  {
+    "id": "cloudflared",
+    "placeholderInitials": "Cf",
+    "color": [
+      245,
+      158,
+      11
+    ]
+  },
+  {
+    "id": "portainer",
+    "placeholderInitials": "P",
+    "color": [
+      0,
+      120,
+      215
+    ]
+  },
+  {
+    "id": "traefik-manager",
+    "placeholderInitials": "TM",
+    "color": [
+      0,
+      184,
+      148
+    ]
+  },
+  {
+    "id": "authelia",
+    "placeholderInitials": "A",
+    "color": [
+      220,
+      38,
+      38
+    ]
+  },
+  {
+    "id": "redis",
+    "placeholderInitials": "R",
+    "color": [
+      220,
+      56,
+      45
+    ]
+  },
+  {
+    "id": "postgres",
+    "placeholderInitials": "PG",
+    "color": [
+      51,
+      103,
+      145
+    ]
+  },
+  {
+    "id": "rocketchat",
+    "placeholderInitials": "RC",
+    "color": [
+      213,
+      43,
+      86
+    ]
+  },
+  {
+    "id": "docker",
+    "placeholderInitials": "D",
+    "color": [
+      0,
+      126,
+      189
+    ]
+  },
+  {
+    "id": "debian",
+    "placeholderInitials": "Deb",
+    "color": [
+      215,
+      10,
+      83
+    ]
+  },
+  {
+    "id": "ubuntu",
+    "placeholderInitials": "U",
+    "color": [
+      233,
+      84,
+      32
+    ]
+  },
+  {
+    "id": "cloudflare",
+    "placeholderInitials": "CF",
+    "color": [
+      245,
+      158,
+      11
+    ]
+  },
+  {
+    "id": "linode",
+    "placeholderInitials": "L",
+    "color": [
+      0,
+      180,
+      126
+    ]
+  },
+  {
+    "id": "logo1",
+    "placeholderInitials": "HiB",
+    "color": [
+      52,
+      211,
+      153
+    ]
+  }
+]
