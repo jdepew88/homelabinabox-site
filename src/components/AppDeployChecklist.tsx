@@ -116,9 +116,9 @@ export function AppDeployChecklist({ exampleHost = EXAMPLE_APP_HOST }: Props) {
               <span className="app-checklist__phase-num" aria-hidden="true">
                 {phaseIndex + 1}
               </span>
-              <h3 id={`checklist-phase-${phase.id}`} className="app-checklist__phase-title">
+              <h2 id={`checklist-phase-${phase.id}`} className="app-checklist__phase-title">
                 {phase.label}
-              </h3>
+              </h2>
             </header>
             <ol className="app-checklist__steps">
               {phase.steps.map((step) => (
@@ -148,3 +148,4 @@ export function AppDeployChecklist({ exampleHost = EXAMPLE_APP_HOST }: Props) {
     </div>
   )
 }
+

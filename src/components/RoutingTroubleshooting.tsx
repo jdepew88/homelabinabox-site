@@ -1,7 +1,14 @@
-export function RoutingTroubleshooting() {
+type Props = {
+  /** Default h3 under an existing h2; use 2 when this block starts a major section (e.g. FAQ). */
+  headingLevel?: 2 | 3
+}
+
+export function RoutingTroubleshooting({ headingLevel = 3 }: Props) {
+  const Title = headingLevel === 2 ? 'h2' : 'h3'
+
   return (
     <div className="routing-notes">
-      <h3>Reading HTTP responses</h3>
+      <Title>Reading HTTP responses</Title>
       <ul>
         <li>
           <strong>404</strong> — Traefik received the request but has no matching router for that{' '}

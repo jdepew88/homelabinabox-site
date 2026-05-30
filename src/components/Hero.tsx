@@ -115,6 +115,7 @@ export function Hero() {
           </ol>
         </div>
 
+        <h2 className="sr-only">Highlights</h2>
         <div className="hiab-hero__features">
           {FEATURES.map((feature) => (
             <article key={feature.title} className="hiab-hero__feature">

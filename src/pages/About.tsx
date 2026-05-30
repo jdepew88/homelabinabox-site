@@ -65,6 +65,7 @@ export function About() {
       </header>
 
       <div className="container container--narrow about-body">
+        <h2 className="about-pillars__heading">At a glance</h2>
         <ul className="about-pillars" aria-label="Project pillars">
           {PILLARS.map((p) => (
             <li key={p.title} className="about-pillar">

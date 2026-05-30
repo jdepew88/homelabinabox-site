@@ -29,10 +29,11 @@ export function Header() {
   return (
     <header className="header">
       <div className="container header__inner">
-        <Link to="/" className="header__brand" onClick={closeMenu}>
+        <Link to="/" className="header__brand" onClick={closeMenu} aria-label={`${SITE.name} home`}>
           <img
             src={BRAND_ICON}
             alt=""
+            aria-hidden="true"
             className="header__logo"
             width={36}
             height={36}
@@ -78,7 +79,7 @@ export function Header() {
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setMenuOpen((o) => !o)}
           >
-            {menuOpen ? '✕' : '☰'}
+            {menuOpen ? '?' : '?'}
           </button>
         </div>
       </div>
@@ -140,3 +141,6 @@ export function Header() {
     </header>
   )
 }
+
+
+

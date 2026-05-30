@@ -20,7 +20,7 @@ export function DocLayout({ title, lead, toc, children }: Props) {
 
         {toc && toc.length > 0 && (
           <nav className="doc-toc" aria-label="On this page">
-            <h4>On this page</h4>
+            <h2 className="doc-toc__title">On this page</h2>
             <ul>
               {toc.map((item) => (
                 <li key={item.id}>

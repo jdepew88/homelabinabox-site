@@ -11,7 +11,7 @@ export function Footer() {
         </div>
         <div className="footer__links">
           <div>
-            <h4>Docs</h4>
+            <h2 className="footer__col-title">Docs</h2>
             <ul>
               <li><Link to="/install">Install</Link></li>
               <li><Link to="/host-setup">Host Setup</Link></li>
@@ -20,7 +20,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Project</h4>
+            <h2 className="footer__col-title">Project</h2>
             <ul>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/privacy">Privacy Policy</Link></li>

@@ -15,6 +15,18 @@
   box-sizing: border-box;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
@@ -403,12 +415,13 @@ img {
   margin-bottom: 2rem;
 }
 
-.doc-toc h4 {
+.doc-toc__title {
   margin: 0 0 0.5rem;
   font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .doc-toc ul {
@@ -633,7 +646,7 @@ img {
 }
 
 .install-flow__item--muted {
-  opacity: 0.75;
+  opacity: 0.92;
 }
 
 .install-flow__num {
@@ -686,6 +699,12 @@ img {
   margin-bottom: 0.35rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+.routing-notes h2,
+.routing-notes h3 {
+  margin-top: 0;
+  font-size: 1.125rem;
 }
 
 .routing-notes ul {

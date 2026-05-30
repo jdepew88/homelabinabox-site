@@ -553,7 +553,15 @@
 /* ——— Desktop compact (1024–1279): 1080p @ 150%, tight laptops ——— */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .header__brand-text {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .header__nav {

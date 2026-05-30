@@ -150,7 +150,11 @@ export function FAQ() {
                 <ul className="faq-hero__chips">
                   {FAQ_ITEMS.map((item, i) => (
                     <li key={item.q}>
-                      <a className="faq-hero__chip" href={`#faq-${i}`}>
+                      <a
+                        className="faq-hero__chip"
+                        href={`#faq-${i}`}
+                        aria-label={`${item.chip}: ${item.q}`}
+                      >
                         {item.chip}
                       </a>
                     </li>
@@ -198,7 +202,7 @@ export function FAQ() {
         </Callout>
 
         <section className="faq-card faq-card--highlight" id="http-codes">
-          <RoutingTroubleshooting />
+          <RoutingTroubleshooting headingLevel={2} />
         </section>
 
         {FAQ_ITEMS.map((item, i) => (

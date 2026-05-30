@@ -1,17 +1,5 @@
 /* Homepage hero — scoped styles only (no Tailwind) */
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 .hiab-hero {
   position: relative;
   overflow: hidden;
@@ -242,7 +230,7 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #67e8f9;
+  color: #a5f3fc;
 }
 
 @media (min-width: 640px) {
@@ -355,7 +343,7 @@
 .hiab-hero__tagline {
   margin: 1.1rem 0 0;
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
 .hiab-hero__pills {
@@ -490,12 +478,12 @@
   margin: 0;
   font-size: 0.9375rem;
   font-weight: 600;
-  color: #a5f3fc;
+  color: #e0f2fe;
 }
 
 .hiab-hero__feature p {
   margin: 0.5rem 0 0;
   font-size: 0.8125rem;
   line-height: 1.55;
-  color: #94a3b8;
+  color: #cbd5e1;
 }
