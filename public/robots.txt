@@ -1,0 +1,3 @@
+cd "C:\Users\Joe\.cursor\projects\homelabIAB-site"
+mkdir public -Force
+code .\public\robots.txt
