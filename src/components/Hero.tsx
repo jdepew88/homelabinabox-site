@@ -3,7 +3,8 @@ import { SITE } from '../config'
 import { ZoomableImage } from './image-lightbox'
 import './Hero.css'
 
-const HERO_IMAGE = '/images/homelab-in-a-box-hero.png'
+const HERO_WEBP = '/images/homelab-in-a-box-logo.webp'
+const HERO_IMAGE = '/images/homelab-in-a-box-logo.png'
 
 const TRAFFIC_FLOW = ['Browser', 'Cloudflare', 'Tunnel', 'Traefik', 'Containers'] as const
 
@@ -45,15 +46,19 @@ export function Hero() {
             <div className="hiab-hero__visual-glow" aria-hidden="true" />
             <div className="hiab-hero__card">
               <div className="hiab-hero__card-inner">
-                <ZoomableImage
-                  src={HERO_IMAGE}
-                  alt="Homelab in a Box — server stack in a box with Traefik routing to app, media, and files subdomains on your domain"
-                  className="hiab-hero__img"
-                  width={1024}
-                  height={1024}
-                  fetchPriority="high"
-                  decoding="async"
-                />
+                <picture>
+                  <source type="image/webp" src={HERO_WEBP} />
+                  <ZoomableImage
+                    src={HERO_IMAGE}
+                    lightboxSrc={HERO_WEBP}
+                    alt="Homelab in a Box — server stack in a box with Traefik routing to app, media, and files subdomains on your domain"
+                    className="hiab-hero__img"
+                    width={1024}
+                    height={1024}
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
           </div>
