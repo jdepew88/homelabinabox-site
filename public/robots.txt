@@ -1,3 +1,4 @@
-cd "C:\Users\Joe\.cursor\projects\homelabIAB-site"
-mkdir public -Force
-code .\public\robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://homelabinabox.com/sitemap.xml
